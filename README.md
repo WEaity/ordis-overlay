@@ -1,5 +1,7 @@
 # Ordis Overlay · Warframe 本地 AI 助手
 
+[![Latest Release](https://img.shields.io/github/v/release/WEaity/ordis-overlay?include_prereleases&style=flat-square&label=release&color=2ea44f)](https://github.com/WEaity/ordis-overlay/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/WEaity/ordis-overlay/total?style=flat-square&color=blue)](https://github.com/WEaity/ordis-overlay/releases)
 [![AI-Built from Zero](https://img.shields.io/badge/Built%20by-AI-from%20zero-6f42c1?style=flat-square)](docs/项目说明书.md#构建方式零代码起点ai-生成)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-0078D6?style=flat-square)](#1-环境)
@@ -70,6 +72,8 @@ npm run doctor     # 体检：缺什么、怎么补、缺了会怎样
 
 ### 4. 免安装版（Release 下载）
 
+[![下载免安装版](https://img.shields.io/badge/下载-OrdisOverlay--1.11.0--win.zip-2ea44f?style=flat-square)](https://github.com/WEaity/ordis-overlay/releases/latest)
+
 不想装 Node / 不想敲命令，就直接下载 Release 里的 `OrdisOverlay-x.y.z-win.zip`（约 135 MB）：
 
 1. 解压到**可写目录**（例如 `D:\Games\OrdisOverlay`，不要放 `C:\Program Files`）；
@@ -83,7 +87,7 @@ npm run doctor     # 体检：缺什么、怎么补、缺了会怎样
 **不包含** `warframe-inv.exe`（第三方二进制），所以库存类功能需要你自己把它放进
 `resources\app\tools\`；其余功能（查价、掉落、世界状态、开核桃秒选、wiki）不受影响。
 
-### 4. 启动
+### 5. 启动
 
 双击 `start-overlay.vbs`（无黑框），或：
 
