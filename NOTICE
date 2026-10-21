@@ -1,0 +1,45 @@
+Ordis Overlay · Warframe 本地 AI 助手
+=====================================
+
+构建方式声明（Provenance Notice）
+--------------------------------
+
+本项目从「零代码」起步：仓库建立时是一个空目录，没有 fork 任何现成项目，
+没有使用任何应用模板，也不存在前人编写的代码或样式。
+
+仓库内全部源码（前端界面、Electron 主进程、Express 服务、MCP 数据服务、数据抓取脚本、
+文档生成脚本）与文档，均由 AI 编码助手在真实需求驱动下逐轮生成：
+
+  · 生成方式：人类提需求 → AI 写代码 → 真机运行验证 → 反馈问题 → AI 修正
+  · 使用模型：DeepSeek 系列（deepseek-chat / deepseek-vision）
+  · 人类职责：提出需求、界定验收标准、决定技术取舍、真机试用并反馈
+  · 累计迭代：40+ 轮功能增改，全部功能均经过真机验证
+
+因此代码风格、注释与目录组织带有明显的 AI 生成特征；请以代码实现与实测结果为准，
+而不是以「某种框架惯例应该怎么写」为准 —— 它本来就不是按模板长出来的。
+
+本项目不依附、不代表、也不受雇于 Digital Extremes、Overwolf/AlecaFrame、
+warframe.market、灰机 wiki、drop.wf.wiki 或上述任何数据提供方。
+
+
+数据与商标归属
+--------------
+
+  · Warframe 及其美术、名称、数据的版权归 Digital Extremes 所有。
+  · 市场价格来自 warframe.market 的公开 API（v2）。
+  · 世界状态来自 Digital Extremes 公开的 worldState 接口，备用源为 tenno.tools。
+  · 中文词条正文来自灰机中文 wiki（warframe.huijiwiki.com），按需单页读取、不批量抓取。
+  · 遗物奖励库来自 drop.wf.wiki 的公开数据。
+  · 离线装备数据来自开源项目 warframe-items（MIT）。
+  · 世界状态解析来自开源项目 warframe-worldstate-parser（MIT）。
+  · Markdown 渲染使用 marked（MIT）。
+
+本项目只做只读聚合与本地缓存，不重新分发上述站点的完整内容，也不声称对其拥有任何权利。
+如果你的使用场景超出个人自用，请先阅读各数据源自身的服务条款。
+
+
+许可
+----
+
+本仓库内由本项目产生的代码与文档以 MIT 许可证发布，见 LICENSE。
+第三方依赖、数据表与商标仍归各自权利人所有，不受本项目 MIT 许可覆盖。

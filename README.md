@@ -1,5 +1,11 @@
 # Ordis Overlay · Warframe 本地 AI 助手
 
+[![AI-Built from Zero](https://img.shields.io/badge/Built%20by-AI-from%20zero-6f42c1?style=flat-square)](docs/项目说明书.md#构建方式零代码起点ai-生成)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-0078D6?style=flat-square)](#1-环境)
+[![Electron](https://img.shields.io/badge/Electron-33-47848F?style=flat-square)](https://www.electronjs.org/)
+[![Tools](https://img.shields.io/badge/MCP%20tools-26-2ea44f?style=flat-square)](#功能一览)
+
 一个跑在 Windows 桌面上的 Warframe 悬浮助手：**透明无边框小图标 → 点开是磨砂 HUD 面板**，
 背后接 DeepSeek 模型与两个本地 MCP 数据服务，查价格、查掉落、查世界状态、看开核桃奖励、算配卡。
 
