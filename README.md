@@ -67,6 +67,21 @@ npm run doctor     # 体检：缺什么、怎么补、缺了会怎样
 
 也可以启动后在面板右上角 **菜单 → API 凭据** 里填，保存即生效。
 
+### 4. 免安装版（Release 下载）
+
+不想装 Node / 不想敲命令，就直接下载 Release 里的 `OrdisOverlay-x.y.z-win.zip`（约 135 MB）：
+
+1. 解压到**可写目录**（例如 `D:\Games\OrdisOverlay`，不要放 `C:\Program Files`）；
+2. 双击 **`启动 OrdisOverlay.vbs`**；
+3. 点右下角图标展开面板 → 右上角 ☰ → **API 凭据** → 填 Key。
+
+> **不要直接双击 `OrdisOverlay.exe`。** 部分机器上 Electron 的渲染进程沙箱会让它启动后立刻退出
+> （没有窗口也没有报错），所以提供了一个带 `--no-sandbox` 的 vbs 启动器。
+
+包内已经包含 Electron 运行时、离线装备库、四张遗物数据表，开箱即用。
+**不包含** `warframe-inv.exe`（第三方二进制），所以库存类功能需要你自己把它放进
+`resources\app\tools\`；其余功能（查价、掉落、世界状态、开核桃秒选、wiki）不受影响。
+
 ### 4. 启动
 
 双击 `start-overlay.vbs`（无黑框），或：

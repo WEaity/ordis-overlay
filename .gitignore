@@ -17,6 +17,9 @@ tools/config.json
 userdata/
 userdata-*/
 
+# 打包产物（135 MB，走 GitHub Release 而不是提交）
+release/
+
 # 日志与临时文件
 *.log
 *.tmp

@@ -45,11 +45,11 @@ async function connectOneServer(cfg) {
   const { StdioClientTransport } = await sdkModule('client/stdio.js');
 
   const env = { ...process.env };
-  // 子进程用 process.execPath 启动。如果 server.js 自己是被 electron.exe
-  // 以 ELECTRON_RUN_AS_NODE=1 跑起来的（悬浮窗自动拉起的情况），process.execPath
-  // 也是 electron.exe —— 这时必须把这个变量继续传下去，否则 electron.exe 会
-  // 当 GUI 程序启动，MCP 立刻报 "Connection closed"。
-  if (path.basename(process.execPath).toLowerCase().startsWith('electron')) {
+  // 子进程用 process.execPath 启动（开发时是 electron.exe，打包后是 OrdisOverlay.exe）。
+  // 这两种都是 Electron 二进制，必须靠 ELECTRON_RUN_AS_NODE=1 才能当 node 解释器用；
+  // 少了它，Electron 会按 GUI 程序启动并立刻退出，MCP 侧只会看到 "Connection closed"。
+  // 所以这里不再按文件名判断，只要是用 process.execPath 起的 node 脚本，就一律带上。
+  if (path.resolve(cfg.command) === path.resolve(process.execPath)) {
     env.ELECTRON_RUN_AS_NODE = '1';
   } else {
     delete env.ELECTRON_RUN_AS_NODE;

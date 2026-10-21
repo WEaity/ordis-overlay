@@ -221,8 +221,9 @@ function spawnUpdate(kind, scriptName) {
   if (!fs.existsSync(script)) throw new Error('找不到 ' + scriptName);
 
   const env = { ...process.env };
-  if (path.basename(process.execPath).toLowerCase().startsWith('electron')) env.ELECTRON_RUN_AS_NODE = '1';
-  else delete env.ELECTRON_RUN_AS_NODE;
+  // process.execPath 是 Electron 二进制（开发时的 electron.exe，打包后的 OrdisOverlay.exe），
+  // 必须带 ELECTRON_RUN_AS_NODE=1 才会当 node 跑，否则会按 GUI 程序启动并立刻退出。
+  env.ELECTRON_RUN_AS_NODE = '1';
 
   const startedAt = Date.now();
   const child = spawn(process.execPath, [script], { cwd: SCRIPTS_DIR, env, windowsHide: true });

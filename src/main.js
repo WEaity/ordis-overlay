@@ -25,6 +25,11 @@ log('main.js loaded, electron', process.versions.electron, 'chrome', process.ver
 //   必须在 app ready 之前设置，所以放在文件最前面。
 app.setPath('userData', path.join(ROOT, 'userdata'));
 
+// ★ 第二个坑：这台机器的 Electron 渲染进程在启用沙箱时会崩，必须带 --no-sandbox。
+//   `npm start` 的启动脚本里已经带了参数，但用户双击打包后的 exe 时没有参数。
+//   这里在进程内补上，保证双击也能正常起来。
+app.commandLine.appendSwitch('no-sandbox');
+
 // 两种形态的窗口尺寸
 const EXPANDED = { width: 384, height: 400 };  // 图标 + 左侧面板 + 两侧留白
 const MIN_SIZE = { width: 300, height: 240 };  // 手动拉伸时允许的最小窗口

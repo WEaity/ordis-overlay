@@ -1,0 +1,35 @@
+Ordis Overlay · 免安装版使用说明
+================================
+
+【怎么启动】
+双击本文件夹里的「启动 OrdisOverlay.vbs」。
+
+不要直接双击 OrdisOverlay.exe —— 部分机器上 Electron 的渲染进程沙箱
+会让它启动后立刻退出（没有窗口、没有报错）。vbs 会自动带上 --no-sandbox。
+
+【第一次要做什么】
+1. 打开面板（点右下角的小图标）
+2. 右上角 ☰ → 设置 → API 凭据
+3. 填入 DeepSeek API Key（必填）
+   如果有 AlecaFrame，再填 userHash / publicToken（选填，用于查库存）
+
+【数据说明】
+data\ 里已内置遗物部件表（612 条）、价格表（597 条有价）、
+奖励库（799 个遗物 / 4795 条奖励）、中英对照（655 条），开箱即用。
+以后要更新：面板 ☰ → 遗物速查数据更新。
+
+【关于库存功能】
+本包不包含 warframe-inv.exe（第三方二进制，11.5 MB）。
+没有它，问库存/白金/紫卡会提示「无法读取本地库存」，
+其他功能（查价、掉落、世界状态、开核桃秒选、wiki）不受影响。
+如果你有该文件，放进 resources\app\tools\ 即可，重启后自动识别。
+
+【日志与配置在哪】
+  resources\app\debug.log   窗口与动画日志
+  resources\app\server.log  接口与工具调用日志
+  resources\app\config.json 你填的 Key（首次保存后生成）
+  resources\app\userdata\   窗口位置、wiki Cookie 等
+
+【退出】
+面板右上角 ☰ → 退出，或按 Ctrl + Shift + Q。
+后端进程会跟着一起结束，不会留孤儿进程。

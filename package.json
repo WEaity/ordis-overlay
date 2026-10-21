@@ -7,6 +7,8 @@
     "start": "electron . --no-sandbox",
     "doctor": "node scripts/doctor.js",
     "setup": "node scripts/setup.js",
+    "dist": "electron-builder --win zip --x64",
+    "dist:dir": "electron-builder --win dir --x64",
     "update:zh": "node scripts/build_zh_map.js && node scripts/fill_zh_search.js",
     "update:relic-parts": "node scripts/update_relic_parts.js",
     "update:relic-prices": "node scripts/update_relic_prices.js",
@@ -15,8 +17,68 @@
   },
   "author": "",
   "license": "MIT",
+  "build": {
+    "appId": "com.weaity.ordis-overlay",
+    "productName": "OrdisOverlay",
+    "asar": false,
+    "compression": "maximum",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "src/**/*",
+      "data/**/*",
+      "assets/**/*",
+      "vendor/**/*",
+      "docs/**/*",
+      "scripts/**/*",
+      "tools/**/*",
+      "package.json",
+      "README.md",
+      "LICENSE",
+      "NOTICE",
+      "start-overlay.bat",
+      "start-overlay.vbs",
+      "!**/*.log",
+      "!**/config.json",
+      "!**/config.example.json",
+      "!**/userdata/**",
+      "!**/userdata-*/**",
+      "!**/.wiki_zh_cache.json",
+      "!**/worldstate-cache.json",
+      "!tools/wf-mcp-lite/data/**",
+      "!tools/warframe-inv.exe",
+      "!**/.git/**",
+      "!**/release/**",
+      "!**/*.md.bak",
+      "!scripts/*.py"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "zip",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico",
+      "signAndEditExecutable": false
+    },
+    "extraFiles": [
+      {
+        "from": "packaging/启动 OrdisOverlay.vbs",
+        "to": "启动 OrdisOverlay.vbs"
+      },
+      {
+        "from": "packaging/请先看这里.txt",
+        "to": "请先看这里.txt"
+      }
+    ]
+  },
   "devDependencies": {
-    "electron": "^33.0.0"
+    "electron": "^33.0.0",
+    "electron-builder": "^26.15.3"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.1",
