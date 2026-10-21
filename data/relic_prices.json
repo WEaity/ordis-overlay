@@ -1,0 +1,4193 @@
+{
+  "_meta": {
+    "updatedAt": "2026-10-21T02:36:47.847Z",
+    "source": "warframe.market v2（前 8 单，中位数，剔除 <30% 异常单）",
+    "count": 612,
+    "priced": 597,
+    "noOrders": 0,
+    "errors": 15,
+    "outliers": 51,
+    "partsUpdatedAt": "2026-10-21T02:30:29.281Z"
+  },
+  "prices": {
+    "Acceltra Prime Barrel": {
+      "platinum": 20,
+      "lowest": 20,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Acceltra Prime Blueprint": {
+      "platinum": 5,
+      "lowest": 3,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Acceltra Prime Receiver": {
+      "platinum": 8,
+      "lowest": 6,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Acceltra Prime Stock": {
+      "platinum": 25,
+      "lowest": 20,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Afuris Prime Barrel": {
+      "platinum": 10,
+      "lowest": 3,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Afuris Prime Blueprint": {
+      "platinum": 10,
+      "lowest": 2,
+      "sellers": 9,
+      "outliers": 1,
+      "ducats": 15
+    },
+    "Afuris Prime Link": {
+      "platinum": 8,
+      "lowest": 5,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Afuris Prime Receiver": {
+      "platinum": 42,
+      "lowest": 30,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Akarius Prime Barrel": {
+      "platinum": 10,
+      "lowest": 9,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Akarius Prime Blueprint": {
+      "platinum": 19,
+      "lowest": 12,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Akarius Prime Link": {
+      "platinum": 6,
+      "lowest": 5,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Akarius Prime Receiver": {
+      "platinum": 39,
+      "lowest": 29,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Akbolto Prime Barrel": {
+      "platinum": 13,
+      "lowest": 8,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Akbolto Prime Blueprint": {
+      "platinum": 8,
+      "lowest": 3,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Akbolto Prime Link": {
+      "platinum": 5,
+      "lowest": 4,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Akbolto Prime Receiver": {
+      "platinum": 30,
+      "lowest": 29,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Akbronco Prime Blueprint": {
+      "platinum": 4,
+      "lowest": 2,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Akbronco Prime Link": {
+      "platinum": 13,
+      "lowest": 4,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Akjagara Prime Barrel": {
+      "platinum": 38,
+      "lowest": 30,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Akjagara Prime Blueprint": {
+      "platinum": 5,
+      "lowest": 3,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Akjagara Prime Link": {
+      "platinum": 30,
+      "lowest": 10,
+      "sellers": 3,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Akjagara Prime Receiver": {
+      "platinum": 35,
+      "lowest": 15,
+      "sellers": 4,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Aklex Prime Blueprint": {
+      "platinum": 14,
+      "lowest": 9,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Aklex Prime Link": {
+      "platinum": 40,
+      "lowest": 30,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Akmagnus Prime Blueprint": {
+      "platinum": 29,
+      "lowest": 14,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Akmagnus Prime Link": {
+      "platinum": 28,
+      "lowest": 10,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Aksomati Prime Barrel": {
+      "platinum": 17,
+      "lowest": 9,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Aksomati Prime Blueprint": {
+      "platinum": 8,
+      "lowest": 5,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Aksomati Prime Link": {
+      "platinum": 30,
+      "lowest": 24,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Aksomati Prime Receiver": {
+      "platinum": 9,
+      "lowest": 8,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Akstiletto Prime Barrel": {
+      "platinum": 25,
+      "lowest": 17,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 25
+    },
+    "Akstiletto Prime Blueprint": {
+      "platinum": 20,
+      "lowest": 13,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Akstiletto Prime Link": {
+      "platinum": 25,
+      "lowest": 8,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Akstiletto Prime Receiver": {
+      "platinum": 40,
+      "lowest": 20,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Akvasto Prime Blueprint": {
+      "platinum": 34,
+      "lowest": 30,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Akvasto Prime Link": {
+      "platinum": 23,
+      "lowest": 12,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Ankyros Prime Blade": {
+      "platinum": 15,
+      "lowest": 10,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Ankyros Prime Blueprint": {
+      "platinum": 10,
+      "lowest": 7,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Ankyros Prime Gauntlet": {
+      "platinum": 16,
+      "lowest": 14,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Ash Prime Blueprint": {
+      "platinum": 15,
+      "lowest": 10,
+      "sellers": 21,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Ash Prime Chassis Blueprint": {
+      "platinum": 19,
+      "lowest": 12,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Ash Prime Neuroptics Blueprint": {
+      "platinum": 15,
+      "lowest": 10,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Ash Prime Systems Blueprint": {
+      "platinum": 20,
+      "lowest": 15,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Astilla Prime Barrel": {
+      "platinum": 28,
+      "lowest": 20,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Astilla Prime Blueprint": {
+      "platinum": 25,
+      "lowest": 5,
+      "sellers": 8,
+      "outliers": 1,
+      "ducats": 45
+    },
+    "Astilla Prime Receiver": {
+      "platinum": 9,
+      "lowest": 5,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Astilla Prime Stock": {
+      "platinum": 7,
+      "lowest": 5,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Atlas Prime Blueprint": {
+      "platinum": 9,
+      "lowest": 5,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Atlas Prime Chassis Blueprint": {
+      "platinum": 23,
+      "lowest": 9,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Atlas Prime Neuroptics Blueprint": {
+      "platinum": 50,
+      "lowest": 44,
+      "sellers": 19,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Atlas Prime Systems Blueprint": {
+      "platinum": 8,
+      "lowest": 5,
+      "sellers": 23,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Ballistica Prime Blueprint": {
+      "platinum": 39,
+      "lowest": 35,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Ballistica Prime Lower Limb": {
+      "platinum": 20,
+      "lowest": 9,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Ballistica Prime Receiver": {
+      "platinum": 10,
+      "lowest": 5,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Ballistica Prime String": {
+      "platinum": 40,
+      "lowest": 30,
+      "sellers": 5,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Ballistica Prime Upper Limb": {
+      "platinum": 19,
+      "lowest": 10,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Banshee Prime Blueprint": {
+      "platinum": 10,
+      "lowest": 8,
+      "sellers": 21,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Banshee Prime Chassis Blueprint": {
+      "platinum": 40,
+      "lowest": 33,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Banshee Prime Neuroptics Blueprint": {
+      "platinum": 5,
+      "lowest": 4,
+      "sellers": 26,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Banshee Prime Systems Blueprint": {
+      "platinum": 29,
+      "lowest": 25,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Baruuk Prime Blueprint": {
+      "platinum": 20,
+      "lowest": 16,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Baruuk Prime Chassis Blueprint": {
+      "platinum": 9,
+      "lowest": 4,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Baruuk Prime Neuroptics Blueprint": {
+      "platinum": 20,
+      "lowest": 15,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Baruuk Prime Systems Blueprint": {
+      "platinum": 10,
+      "lowest": 8,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Baza Prime Blueprint": {
+      "platinum": 8,
+      "lowest": 6,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Baza Prime Receiver": {
+      "platinum": 33,
+      "lowest": 30,
+      "sellers": 2,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Baza Prime Stock": {
+      "platinum": 50,
+      "lowest": 24,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Bo Prime Blueprint": {
+      "platinum": 20,
+      "lowest": 15,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Bo Prime Handle": {
+      "platinum": 18,
+      "lowest": 14,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Bo Prime Ornament": {
+      "platinum": 30,
+      "lowest": 25,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Boar Prime Barrel": {
+      "platinum": 20,
+      "lowest": 18,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Boar Prime Blueprint": {
+      "platinum": 11,
+      "lowest": 9,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Boar Prime Receiver": {
+      "platinum": 15,
+      "lowest": 14,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Boar Prime Stock": {
+      "platinum": 50,
+      "lowest": 45,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Boltor Prime Barrel": {
+      "platinum": 15,
+      "lowest": 8,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Boltor Prime Blueprint": {
+      "platinum": 20,
+      "lowest": 18,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Boltor Prime Receiver": {
+      "platinum": 10,
+      "lowest": 6,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Boltor Prime Stock": {
+      "platinum": 17,
+      "lowest": 10,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Braton Prime Barrel": {
+      "platinum": 10,
+      "lowest": 4,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Braton Prime Blueprint": {
+      "platinum": 4,
+      "lowest": 2,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 25
+    },
+    "Braton Prime Receiver": {
+      "platinum": 5,
+      "lowest": 4,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Braton Prime Stock": {
+      "platinum": 4,
+      "lowest": 2,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 25
+    },
+    "Bronco Prime Barrel": {
+      "platinum": 13,
+      "lowest": 8,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Bronco Prime Blueprint": {
+      "platinum": 10,
+      "lowest": 5,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Bronco Prime Receiver": {
+      "platinum": 10,
+      "lowest": 2,
+      "sellers": 9,
+      "outliers": 1,
+      "ducats": 15
+    },
+    "Burston Prime Barrel": {
+      "platinum": 6,
+      "lowest": 4,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Burston Prime Blueprint": {
+      "platinum": 10,
+      "lowest": 3,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Burston Prime Receiver": {
+      "platinum": 5,
+      "lowest": 3,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Burston Prime Stock": {
+      "platinum": 6,
+      "lowest": 3,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Carrier Prime Blueprint": {
+      "platinum": 30,
+      "lowest": 10,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Carrier Prime Carapace": {
+      "platinum": 23,
+      "lowest": 13,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Carrier Prime Cerebrum": {
+      "platinum": 72,
+      "lowest": 46,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Carrier Prime Systems": {
+      "platinum": 10,
+      "lowest": 8,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Cedo Prime Barrel": {
+      "platinum": 4,
+      "lowest": 2,
+      "sellers": 21,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Cedo Prime Blueprint": {
+      "platinum": 10,
+      "lowest": 8,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Cedo Prime Receiver": {
+      "platinum": 6,
+      "lowest": 3,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Cedo Prime Stock": {
+      "platinum": 5,
+      "lowest": 5,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Cernos Prime Blueprint": {
+      "platinum": 9,
+      "lowest": 5,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Cernos Prime Grip": {
+      "platinum": 10,
+      "lowest": 8,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Cernos Prime Lower Limb": {
+      "platinum": 40,
+      "lowest": 21,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Cernos Prime String": {
+      "platinum": 9,
+      "lowest": 5,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 25
+    },
+    "Cernos Prime Upper Limb": {
+      "platinum": 14,
+      "lowest": 8,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Chroma Prime Blueprint": {
+      "platinum": 10,
+      "lowest": 8,
+      "sellers": 21,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Chroma Prime Chassis Blueprint": {
+      "platinum": 10,
+      "lowest": 8,
+      "sellers": 21,
+      "outliers": 0,
+      "ducats": 25
+    },
+    "Chroma Prime Neuroptics Blueprint": {
+      "platinum": 30,
+      "lowest": 25,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Chroma Prime Systems Blueprint": {
+      "platinum": 36,
+      "lowest": 30,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Cobra & Crane Prime Blade": {
+      "platinum": 7,
+      "lowest": 5,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Cobra & Crane Prime Blueprint": {
+      "platinum": 5,
+      "lowest": 4,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Cobra & Crane Prime Guard": {
+      "platinum": 21,
+      "lowest": 13,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Cobra & Crane Prime Hilt": {
+      "platinum": 9,
+      "lowest": 6,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Corinth Prime Barrel": {
+      "platinum": 55,
+      "lowest": 40,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Corinth Prime Blueprint": {
+      "platinum": 8,
+      "lowest": 5,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Corinth Prime Receiver": {
+      "platinum": 9,
+      "lowest": 5,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Corinth Prime Stock": {
+      "platinum": 20,
+      "lowest": 15,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Corvas Prime Barrel": {
+      "platinum": 37,
+      "lowest": 30,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Corvas Prime Blueprint": {
+      "platinum": 7,
+      "lowest": 5,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Corvas Prime Receiver": {
+      "platinum": 23,
+      "lowest": 8,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Dakra Prime Blade": {
+      "platinum": 20,
+      "lowest": 14,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Dakra Prime Blueprint": {
+      "platinum": 22,
+      "lowest": 9,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Dakra Prime Handle": {
+      "platinum": 20,
+      "lowest": 8,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Destreza Prime Blade": {
+      "platinum": 67,
+      "lowest": 60,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Destreza Prime Blueprint": {
+      "platinum": 13,
+      "lowest": 7,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Destreza Prime Handle": {
+      "platinum": 20,
+      "lowest": 10,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Dethcube Prime Blueprint": {
+      "platinum": 29,
+      "lowest": 20,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Dethcube Prime Carapace": {
+      "platinum": 13,
+      "lowest": 8,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Dethcube Prime Cerebrum": {
+      "platinum": 40,
+      "lowest": 34,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Dethcube Prime Systems": {
+      "platinum": 9,
+      "lowest": 7,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Dual Kamas Prime Blade": {
+      "platinum": 48,
+      "lowest": 39,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Dual Kamas Prime Blueprint": {
+      "platinum": 9,
+      "lowest": 5,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Dual Kamas Prime Handle": {
+      "platinum": 40,
+      "lowest": 7,
+      "sellers": 7,
+      "outliers": 2,
+      "ducats": 45
+    },
+    "Dual Keres Prime Blade": {
+      "platinum": 18,
+      "lowest": 9,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Dual Keres Prime Blueprint": {
+      "platinum": 23,
+      "lowest": 17,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Dual Keres Prime Handle": {
+      "platinum": 23,
+      "lowest": 8,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Dual Zoren Prime Blade": {
+      "platinum": 10,
+      "lowest": 9,
+      "sellers": 20,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Dual Zoren Prime Blueprint": {
+      "platinum": 4,
+      "lowest": 3,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Ember Prime Blueprint": {
+      "platinum": 30,
+      "lowest": 27,
+      "sellers": 18,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Ember Prime Chassis Blueprint": {
+      "platinum": 15,
+      "lowest": 10,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Ember Prime Neuroptics Blueprint": {
+      "platinum": 11,
+      "lowest": 10,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Ember Prime Systems Blueprint": {
+      "platinum": 10,
+      "lowest": 9,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Epitaph Prime Barrel": {
+      "platinum": 5,
+      "lowest": 5,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Epitaph Prime Blueprint": {
+      "platinum": 7,
+      "lowest": 6,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Epitaph Prime Receiver": {
+      "platinum": 30,
+      "lowest": 14,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Equinox Prime Blueprint": {
+      "platinum": 15,
+      "lowest": 13,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Equinox Prime Chassis Blueprint": {
+      "platinum": 5,
+      "lowest": 4,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Equinox Prime Neuroptics Blueprint": {
+      "platinum": 8,
+      "lowest": 7,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Equinox Prime Systems Blueprint": {
+      "platinum": 37,
+      "lowest": 29,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Euphona Prime Barrel": {
+      "platinum": 10,
+      "lowest": 4,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Euphona Prime Blueprint": {
+      "platinum": 5,
+      "lowest": 4,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Euphona Prime Receiver": {
+      "platinum": 58,
+      "lowest": 47,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Fang Prime Blade": {
+      "platinum": 10,
+      "lowest": 5,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Fang Prime Blueprint": {
+      "platinum": 3,
+      "lowest": 1,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Fang Prime Handle": {
+      "platinum": 5,
+      "lowest": 2,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 25
+    },
+    "Fragor Prime Blueprint": {
+      "platinum": 15,
+      "lowest": 14,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Fragor Prime Handle": {
+      "platinum": 16,
+      "lowest": 11,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Fragor Prime Head": {
+      "platinum": 11,
+      "lowest": 7,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Frost Prime Blueprint": {
+      "platinum": 47,
+      "lowest": 39,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Frost Prime Chassis Blueprint": {
+      "platinum": 20,
+      "lowest": 14,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Frost Prime Neuroptics Blueprint": {
+      "platinum": 10,
+      "lowest": 10,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Frost Prime Systems Blueprint": {
+      "platinum": 14,
+      "lowest": 12,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Fulmin Prime Barrel": {
+      "platinum": 10,
+      "lowest": 5,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Fulmin Prime Blueprint": {
+      "platinum": 9,
+      "lowest": 5,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Fulmin Prime Receiver": {
+      "platinum": 40,
+      "lowest": 33,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Fulmin Prime Stock": {
+      "platinum": 13,
+      "lowest": 6,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Galatine Prime Blade": {
+      "platinum": 7,
+      "lowest": 5,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Galatine Prime Blueprint": {
+      "platinum": 55,
+      "lowest": 40,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Galatine Prime Handle": {
+      "platinum": 9,
+      "lowest": 6,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Gara Prime Blueprint": {
+      "platinum": 37,
+      "lowest": 29,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Gara Prime Chassis Blueprint": {
+      "platinum": 19,
+      "lowest": 15,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Gara Prime Neuroptics Blueprint": {
+      "platinum": 10,
+      "lowest": 7,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Gara Prime Systems Blueprint": {
+      "platinum": 10,
+      "lowest": 6,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Garuda Prime Blueprint": {
+      "platinum": 8,
+      "lowest": 5,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Garuda Prime Chassis Blueprint": {
+      "platinum": 9,
+      "lowest": 7,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Garuda Prime Neuroptics Blueprint": {
+      "platinum": 28,
+      "lowest": 24,
+      "sellers": 18,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Garuda Prime Systems Blueprint": {
+      "platinum": 38,
+      "lowest": 35,
+      "sellers": 18,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Gauss Prime Blueprint": {
+      "platinum": 7,
+      "lowest": 5,
+      "sellers": 18,
+      "outliers": 0,
+      "ducats": 25
+    },
+    "Gauss Prime Chassis Blueprint": {
+      "platinum": 10,
+      "lowest": 5,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Gauss Prime Neuroptics Blueprint": {
+      "platinum": 14,
+      "lowest": 8,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Gauss Prime Systems Blueprint": {
+      "platinum": 30,
+      "lowest": 25,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Glaive Prime Blade": {
+      "platinum": 20,
+      "lowest": 19,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Glaive Prime Blueprint": {
+      "platinum": 20,
+      "lowest": 18,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Glaive Prime Disc": {
+      "platinum": 10,
+      "lowest": 8,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Gram Prime Blade": {
+      "platinum": 7,
+      "lowest": 5,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Gram Prime Blueprint": {
+      "platinum": 10,
+      "lowest": 7,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Gram Prime Handle": {
+      "platinum": 25,
+      "lowest": 20,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Grendel Prime Blueprint": {
+      "platinum": 20,
+      "lowest": 13,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Grendel Prime Chassis Blueprint": {
+      "platinum": 9,
+      "lowest": 5,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Grendel Prime Neuroptics Blueprint": {
+      "platinum": 9,
+      "lowest": 9,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Grendel Prime Systems Blueprint": {
+      "platinum": 35,
+      "lowest": 34,
+      "sellers": 18,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Guandao Prime Blade": {
+      "platinum": 30,
+      "lowest": 10,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Guandao Prime Blueprint": {
+      "platinum": 13,
+      "lowest": 5,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Guandao Prime Handle": {
+      "platinum": 33,
+      "lowest": 20,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Gunsen Prime Blade": {
+      "platinum": 30,
+      "lowest": 19,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Gunsen Prime Blueprint": {
+      "platinum": 10,
+      "lowest": 2,
+      "sellers": 9,
+      "outliers": 1,
+      "ducats": 15
+    },
+    "Gunsen Prime Handle": {
+      "platinum": 20,
+      "lowest": 10,
+      "sellers": 5,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Harrow Prime Blueprint": {
+      "platinum": 20,
+      "lowest": 9,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Harrow Prime Chassis Blueprint": {
+      "platinum": 30,
+      "lowest": 20,
+      "sellers": 4,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Harrow Prime Neuroptics Blueprint": {
+      "platinum": 11,
+      "lowest": 9,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Harrow Prime Systems Blueprint": {
+      "platinum": 39,
+      "lowest": 35,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Helios Prime Blueprint": {
+      "platinum": 9,
+      "lowest": 3,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Helios Prime Carapace": {
+      "platinum": 5,
+      "lowest": 5,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Helios Prime Cerebrum": {
+      "platinum": 45,
+      "lowest": 30,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Helios Prime Systems": {
+      "platinum": 15,
+      "lowest": 10,
+      "sellers": 5,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Hikou Prime Blueprint": {
+      "platinum": 5,
+      "lowest": 5,
+      "sellers": 5,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Hikou Prime Pouch": {
+      "platinum": 15,
+      "lowest": 10,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Hikou Prime Stars": {
+      "platinum": 10,
+      "lowest": 9,
+      "sellers": 3,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Hildryn Prime Blueprint": {
+      "platinum": 40,
+      "lowest": 38,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Hildryn Prime Chassis Blueprint": {
+      "platinum": 20,
+      "lowest": 10,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Hildryn Prime Neuroptics Blueprint": {
+      "platinum": 14,
+      "lowest": 7,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Hildryn Prime Systems Blueprint": {
+      "platinum": 7,
+      "lowest": 3,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Hydroid Prime Blueprint": {
+      "platinum": 30,
+      "lowest": 15,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Hydroid Prime Chassis Blueprint": {
+      "platinum": 10,
+      "lowest": 9,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Hydroid Prime Neuroptics Blueprint": {
+      "platinum": 21,
+      "lowest": 20,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Hydroid Prime Systems Blueprint": {
+      "platinum": 36,
+      "lowest": 30,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Hystrix Prime Barrel": {
+      "platinum": 10,
+      "lowest": 7,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Hystrix Prime Blueprint": {
+      "platinum": 11,
+      "lowest": 5,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Hystrix Prime Receiver": {
+      "platinum": 20,
+      "lowest": 18,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Inaros Prime Blueprint": {
+      "platinum": 22,
+      "lowest": 9,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Inaros Prime Chassis Blueprint": {
+      "platinum": 7,
+      "lowest": 5,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Inaros Prime Neuroptics Blueprint": {
+      "platinum": 60,
+      "lowest": 44,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Inaros Prime Systems Blueprint": {
+      "platinum": 10,
+      "lowest": 9,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Ivara Prime Blueprint": {
+      "platinum": 15,
+      "lowest": 10,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Ivara Prime Chassis Blueprint": {
+      "platinum": 20,
+      "lowest": 20,
+      "sellers": 19,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Ivara Prime Neuroptics Blueprint": {
+      "platinum": 10,
+      "lowest": 9,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Ivara Prime Systems Blueprint": {
+      "platinum": 13,
+      "lowest": 10,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Karyst Prime Blade": {
+      "platinum": 40,
+      "lowest": 23,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Karyst Prime Blueprint": {
+      "platinum": 8,
+      "lowest": 7,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Karyst Prime Handle": {
+      "platinum": 15,
+      "lowest": 7,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Kavasa Prime Band": {
+      "platinum": 20,
+      "lowest": 9,
+      "sellers": 2,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Kavasa Prime Buckle": {
+      "platinum": 25,
+      "lowest": 19,
+      "sellers": 4,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Kavasa Prime Kubrow Collar Blueprint": {
+      "platinum": 10,
+      "lowest": 5,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Khora Prime Blueprint": {
+      "platinum": 32,
+      "lowest": 29,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Khora Prime Chassis Blueprint": {
+      "platinum": 9,
+      "lowest": 6,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Khora Prime Neuroptics Blueprint": {
+      "platinum": 29,
+      "lowest": 28,
+      "sellers": 19,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Khora Prime Systems Blueprint": {
+      "platinum": 8,
+      "lowest": 8,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Knell Prime Barrel": {
+      "platinum": 38,
+      "lowest": 35,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Knell Prime Blueprint": {
+      "platinum": 20,
+      "lowest": 4,
+      "sellers": 6,
+      "outliers": 1,
+      "ducats": 15
+    },
+    "Knell Prime Receiver": {
+      "platinum": 10,
+      "lowest": 5,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Kogake Prime Blueprint": {
+      "platinum": 5,
+      "lowest": 4,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Kogake Prime Boot": {
+      "platinum": 7,
+      "lowest": 5,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Kogake Prime Gauntlet": {
+      "platinum": 20,
+      "lowest": 19,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Kronen Prime Blade": {
+      "platinum": 50,
+      "lowest": 40,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Kronen Prime Blueprint": {
+      "platinum": 8,
+      "lowest": 3,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Kronen Prime Handle": {
+      "platinum": 23,
+      "lowest": 10,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Larkspur Prime Barrel": {
+      "platinum": 40,
+      "lowest": 34,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Larkspur Prime Blueprint": {
+      "platinum": 10,
+      "lowest": 7,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Larkspur Prime Receiver": {
+      "platinum": 10,
+      "lowest": 7,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Larkspur Prime Stock": {
+      "platinum": 10,
+      "lowest": 6,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Latron Prime Barrel": {
+      "platinum": 28,
+      "lowest": 5,
+      "sellers": 11,
+      "outliers": 2,
+      "ducats": 15
+    },
+    "Latron Prime Blueprint": {
+      "platinum": 27,
+      "lowest": 19,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Latron Prime Receiver": {
+      "platinum": 20,
+      "lowest": 17,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Latron Prime Stock": {
+      "platinum": 30,
+      "lowest": 15,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Lavos Prime Blueprint": {
+      "platinum": 5,
+      "lowest": 4,
+      "sellers": 19,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Lavos Prime Chassis Blueprint": {
+      "platinum": 13,
+      "lowest": 2,
+      "sellers": 11,
+      "outliers": 3,
+      "ducats": 15
+    },
+    "Lavos Prime Neuroptics Blueprint": {
+      "platinum": 9,
+      "lowest": 4,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Lex Prime Barrel": {
+      "platinum": 5,
+      "lowest": 5,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Lex Prime Blueprint": {
+      "platinum": 10,
+      "lowest": 2,
+      "sellers": 9,
+      "outliers": 1,
+      "ducats": 25
+    },
+    "Lex Prime Receiver": {
+      "platinum": 10,
+      "lowest": 3,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Limbo Prime Blueprint": {
+      "platinum": 30,
+      "lowest": 10,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Limbo Prime Chassis Blueprint": {
+      "platinum": 50,
+      "lowest": 49,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Limbo Prime Neuroptics Blueprint": {
+      "platinum": 30,
+      "lowest": 30,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Limbo Prime Systems Blueprint": {
+      "platinum": 6,
+      "lowest": 4,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Loki Prime Blueprint": {
+      "platinum": 10,
+      "lowest": 8,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Loki Prime Chassis Blueprint": {
+      "platinum": 23,
+      "lowest": 19,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Loki Prime Neuroptics Blueprint": {
+      "platinum": 16,
+      "lowest": 15,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Loki Prime Systems Blueprint": {
+      "platinum": 47,
+      "lowest": 25,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Mag Prime Blueprint": {
+      "platinum": 43,
+      "lowest": 39,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Mag Prime Chassis Blueprint": {
+      "platinum": 12,
+      "lowest": 9,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Mag Prime Neuroptics Blueprint": {
+      "platinum": 14,
+      "lowest": 10,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Mag Prime Systems Blueprint": {
+      "platinum": 19,
+      "lowest": 14,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Magnus Prime Barrel": {
+      "platinum": 55,
+      "lowest": 39,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Magnus Prime Blueprint": {
+      "platinum": 10,
+      "lowest": 6,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Magnus Prime Receiver": {
+      "platinum": 10,
+      "lowest": 9,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Masseter Prime Blade": {
+      "platinum": 18,
+      "lowest": 13,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Masseter Prime Blueprint": {
+      "platinum": 5,
+      "lowest": 4,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Masseter Prime Handle": {
+      "platinum": 13,
+      "lowest": 5,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Mesa Prime Blueprint": {
+      "platinum": 9,
+      "lowest": 5,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Mesa Prime Chassis Blueprint": {
+      "platinum": 19,
+      "lowest": 6,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Mesa Prime Neuroptics Blueprint": {
+      "platinum": 35,
+      "lowest": 29,
+      "sellers": 18,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Mesa Prime Systems Blueprint": {
+      "platinum": 15,
+      "lowest": 14,
+      "sellers": 20,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Mirage Prime Blueprint": {
+      "platinum": 31,
+      "lowest": 30,
+      "sellers": 18,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Mirage Prime Chassis Blueprint": {
+      "platinum": 10,
+      "lowest": 8,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Mirage Prime Neuroptics Blueprint": {
+      "platinum": 5,
+      "lowest": 4,
+      "sellers": 20,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Mirage Prime Systems Blueprint": {
+      "platinum": 14,
+      "lowest": 10,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Nagantaka Prime Barrel": {
+      "platinum": 18,
+      "lowest": 8,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Nagantaka Prime Blueprint": {
+      "platinum": 25,
+      "lowest": 14,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Nagantaka Prime Receiver": {
+      "platinum": 6,
+      "lowest": 3,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Nagantaka Prime Stock": {
+      "platinum": 13,
+      "lowest": 7,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Nami Skyla Prime Blade": {
+      "platinum": 35,
+      "lowest": 30,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Nami Skyla Prime Blueprint": {
+      "platinum": 15,
+      "lowest": 8,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Nami Skyla Prime Handle": {
+      "platinum": 21,
+      "lowest": 10,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Nautilus Prime Blueprint": {
+      "platinum": 15,
+      "lowest": 10,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Nautilus Prime Carapace": {
+      "platinum": 8,
+      "lowest": 7,
+      "sellers": 18,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Nautilus Prime Cerebrum": {
+      "platinum": 27,
+      "lowest": 23,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Nautilus Prime Systems": {
+      "platinum": 4,
+      "lowest": 2,
+      "sellers": 22,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Nekros Prime Blueprint": {
+      "platinum": 35,
+      "lowest": 29,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Nekros Prime Chassis Blueprint": {
+      "platinum": 10,
+      "lowest": 9,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Nekros Prime Neuroptics Blueprint": {
+      "platinum": 29,
+      "lowest": 25,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Nekros Prime Systems Blueprint": {
+      "platinum": 30,
+      "lowest": 29,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Nezha Prime Blueprint": {
+      "platinum": 10,
+      "lowest": 7,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Nezha Prime Chassis Blueprint": {
+      "platinum": 34,
+      "lowest": 30,
+      "sellers": 19,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Nezha Prime Neuroptics Blueprint": {
+      "platinum": 30,
+      "lowest": 25,
+      "sellers": 20,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Nezha Prime Systems Blueprint": {
+      "platinum": 10,
+      "lowest": 4,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Nidus Prime Blueprint": {
+      "platinum": 10,
+      "lowest": 8,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Nidus Prime Chassis Blueprint": {
+      "platinum": 35,
+      "lowest": 26,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Nidus Prime Neuroptics Blueprint": {
+      "platinum": 36,
+      "lowest": 30,
+      "sellers": 19,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Nidus Prime Systems Blueprint": {
+      "platinum": 10,
+      "lowest": 6,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Nikana Prime Blade": {
+      "platinum": 35,
+      "lowest": 19,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Nikana Prime Blueprint": {
+      "platinum": 13,
+      "lowest": 6,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 25
+    },
+    "Nikana Prime Hilt": {
+      "platinum": 45,
+      "lowest": 35,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Ninkondi Prime Blueprint": {
+      "platinum": 9,
+      "lowest": 5,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Ninkondi Prime Chain": {
+      "platinum": 10,
+      "lowest": 5,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Ninkondi Prime Handle": {
+      "platinum": 32,
+      "lowest": 23,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Nova Prime Blueprint": {
+      "platinum": 20,
+      "lowest": 14,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Nova Prime Chassis Blueprint": {
+      "platinum": 30,
+      "lowest": 29,
+      "sellers": 22,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Nova Prime Neuroptics Blueprint": {
+      "platinum": 17,
+      "lowest": 15,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Nova Prime Systems Blueprint": {
+      "platinum": 22,
+      "lowest": 10,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Nyx Prime Blueprint": {
+      "platinum": 15,
+      "lowest": 10,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Nyx Prime Chassis Blueprint": {
+      "platinum": 10,
+      "lowest": 8,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Nyx Prime Neuroptics Blueprint": {
+      "platinum": 30,
+      "lowest": 29,
+      "sellers": 18,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Nyx Prime Systems Blueprint": {
+      "platinum": 10,
+      "lowest": 10,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Oberon Prime Blueprint": {
+      "platinum": 15,
+      "lowest": 9,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Oberon Prime Chassis Blueprint": {
+      "platinum": 22,
+      "lowest": 13,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Oberon Prime Neuroptics Blueprint": {
+      "platinum": 40,
+      "lowest": 39,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Oberon Prime Systems Blueprint": {
+      "platinum": 18,
+      "lowest": 16,
+      "sellers": 18,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Octavia Prime Blueprint": {
+      "platinum": 49,
+      "lowest": 45,
+      "sellers": 19,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Octavia Prime Chassis Blueprint": {
+      "platinum": 30,
+      "lowest": 18,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Octavia Prime Neuroptics Blueprint": {
+      "platinum": 9,
+      "lowest": 7,
+      "sellers": 20,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Octavia Prime Systems Blueprint": {
+      "platinum": 11,
+      "lowest": 10,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Odonata Prime Blueprint": {
+      "platinum": 9,
+      "lowest": 6,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Odonata Prime Harness Blueprint": {
+      "platinum": 18,
+      "lowest": 10,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Odonata Prime Systems Blueprint": {
+      "platinum": 9,
+      "lowest": 5,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Odonata Prime Wings Blueprint": {
+      "platinum": 38,
+      "lowest": 25,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Okina Prime Blade": {
+      "platinum": 13,
+      "lowest": 10,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Okina Prime Blueprint": {
+      "platinum": 30,
+      "lowest": 20,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Okina Prime Handle": {
+      "platinum": 15,
+      "lowest": 14,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Orthos Prime Blade": {
+      "platinum": 13,
+      "lowest": 5,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Orthos Prime Blueprint": {
+      "platinum": 5,
+      "lowest": 3,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Orthos Prime Handle": {
+      "platinum": 4,
+      "lowest": 2,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Pandero Prime Barrel": {
+      "platinum": 40,
+      "lowest": 5,
+      "sellers": 6,
+      "outliers": 1,
+      "ducats": 45
+    },
+    "Pandero Prime Blueprint": {
+      "platinum": 30,
+      "lowest": 5,
+      "sellers": 7,
+      "outliers": 2,
+      "ducats": 15
+    },
+    "Pandero Prime Receiver": {
+      "platinum": 50,
+      "lowest": 34,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Pangolin Prime Blade": {
+      "platinum": 10,
+      "lowest": 7,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Pangolin Prime Blueprint": {
+      "platinum": 15,
+      "lowest": 10,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Pangolin Prime Handle": {
+      "platinum": 10,
+      "lowest": 5,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Panthera Prime Barrel": {
+      "platinum": 60,
+      "lowest": 25,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Panthera Prime Blueprint": {
+      "platinum": 9,
+      "lowest": 5,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Panthera Prime Receiver": {
+      "platinum": 27,
+      "lowest": 20,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Panthera Prime Stock": {
+      "platinum": 30,
+      "lowest": 9,
+      "sellers": 5,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Paris Prime Blueprint": {
+      "platinum": 30,
+      "lowest": 2,
+      "sellers": 7,
+      "outliers": 3,
+      "ducats": 15
+    },
+    "Paris Prime Grip": {
+      "platinum": 30,
+      "lowest": 4,
+      "sellers": 8,
+      "outliers": 2,
+      "ducats": 45
+    },
+    "Paris Prime Lower Limb": {
+      "platinum": 9,
+      "lowest": 2,
+      "sellers": 9,
+      "outliers": 2,
+      "ducats": 15
+    },
+    "Paris Prime String": {
+      "platinum": 5,
+      "lowest": 3,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Paris Prime Upper Limb": {
+      "platinum": 5,
+      "lowest": 2,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 25
+    },
+    "Phantasma Prime Barrel": {
+      "platinum": 28,
+      "lowest": 22,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Phantasma Prime Blueprint": {
+      "platinum": 9,
+      "lowest": 5,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Phantasma Prime Receiver": {
+      "platinum": 9,
+      "lowest": 6,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Phantasma Prime Stock": {
+      "platinum": 26,
+      "lowest": 17,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Protea Prime Blueprint": {
+      "platinum": 5,
+      "lowest": 3,
+      "sellers": 20,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Protea Prime Chassis Blueprint": {
+      "platinum": 20,
+      "lowest": 15,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Protea Prime Neuroptics Blueprint": {
+      "platinum": 5,
+      "lowest": 4,
+      "sellers": 18,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Protea Prime Systems Blueprint": {
+      "platinum": 10,
+      "lowest": 7,
+      "sellers": 35,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Pyrana Prime Barrel": {
+      "platinum": 10,
+      "lowest": 3,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Pyrana Prime Blueprint": {
+      "platinum": 50,
+      "lowest": 39,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Pyrana Prime Receiver": {
+      "platinum": 13,
+      "lowest": 5,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Quassus Prime Blade": {
+      "platinum": 13,
+      "lowest": 10,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Quassus Prime Blueprint": {
+      "platinum": 4,
+      "lowest": 3,
+      "sellers": 19,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Quassus Prime Handle": {
+      "platinum": 9,
+      "lowest": 4,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Reaper Prime Blade": {
+      "platinum": 22,
+      "lowest": 10,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Reaper Prime Blueprint": {
+      "platinum": 30,
+      "lowest": 10,
+      "sellers": 5,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Reaper Prime Handle": {
+      "platinum": 18,
+      "lowest": 7,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Redeemer Prime Blade": {
+      "platinum": 15,
+      "lowest": 5,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Redeemer Prime Blueprint": {
+      "platinum": 7,
+      "lowest": 5,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Redeemer Prime Handle": {
+      "platinum": 70,
+      "lowest": 60,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Revenant Prime Blueprint": {
+      "platinum": 30,
+      "lowest": 22,
+      "sellers": 18,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Revenant Prime Chassis Blueprint": {
+      "platinum": 8,
+      "lowest": 5,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Revenant Prime Neuroptics Blueprint": {
+      "platinum": 10,
+      "lowest": 7,
+      "sellers": 21,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Revenant Prime Systems Blueprint": {
+      "platinum": 15,
+      "lowest": 9,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Rhino Prime Blueprint": {
+      "platinum": 26,
+      "lowest": 20,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Rhino Prime Chassis Blueprint": {
+      "platinum": 13,
+      "lowest": 10,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Rhino Prime Neuroptics Blueprint": {
+      "platinum": 20,
+      "lowest": 15,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Rhino Prime Systems Blueprint": {
+      "platinum": 15,
+      "lowest": 10,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Rubico Prime Barrel": {
+      "platinum": 10,
+      "lowest": 7,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 25
+    },
+    "Rubico Prime Blueprint": {
+      "platinum": 55,
+      "lowest": 24,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Rubico Prime Receiver": {
+      "platinum": 10,
+      "lowest": 5,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Rubico Prime Stock": {
+      "platinum": 10,
+      "lowest": 8,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Saryn Prime Blueprint": {
+      "platinum": 20,
+      "lowest": 16,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Saryn Prime Chassis Blueprint": {
+      "platinum": 39,
+      "lowest": 35,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Saryn Prime Neuroptics Blueprint": {
+      "platinum": 13,
+      "lowest": 10,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Saryn Prime Systems Blueprint": {
+      "platinum": 10,
+      "lowest": 8,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Scindo Prime Blade": {
+      "platinum": 20,
+      "lowest": 14,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Scindo Prime Blueprint": {
+      "platinum": 7,
+      "lowest": 5,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Scindo Prime Handle": {
+      "platinum": 10,
+      "lowest": 9,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 25
+    },
+    "Scourge Prime Barrel": {
+      "platinum": 40,
+      "lowest": 38,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Scourge Prime Blade": {
+      "platinum": 8,
+      "lowest": 5,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Scourge Prime Blueprint": {
+      "platinum": 25,
+      "lowest": 12,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Scourge Prime Handle": {
+      "platinum": 9,
+      "lowest": 8,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Sevagoth Prime Blueprint": {
+      "platinum": 6,
+      "lowest": 5,
+      "sellers": 22,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Sevagoth Prime Chassis Blueprint": {
+      "platinum": 39,
+      "lowest": 30,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Sevagoth Prime Neuroptics Blueprint": {
+      "platinum": 4,
+      "lowest": 2,
+      "sellers": 19,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Sevagoth Prime Systems Blueprint": {
+      "platinum": 5,
+      "lowest": 3,
+      "sellers": 19,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Shade Prime Blueprint": {
+      "platinum": 8,
+      "lowest": 5,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Shade Prime Carapace": {
+      "platinum": 40,
+      "lowest": 34,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Shade Prime Cerebrum": {
+      "platinum": 13,
+      "lowest": 7,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Shade Prime Systems": {
+      "platinum": 5,
+      "lowest": 4,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Sicarus Prime Barrel": {
+      "platinum": 15,
+      "lowest": 9,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Sicarus Prime Blueprint": {
+      "platinum": 13,
+      "lowest": 6,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Sicarus Prime Receiver": {
+      "platinum": 53,
+      "lowest": 40,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Silva & Aegis Prime Blade": {
+      "platinum": 10,
+      "lowest": 8,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Silva & Aegis Prime Blueprint": {
+      "platinum": 14,
+      "lowest": 8,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Silva & Aegis Prime Guard": {
+      "platinum": 40,
+      "lowest": 25,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Silva & Aegis Prime Hilt": {
+      "platinum": 10,
+      "lowest": 7,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Soma Prime Barrel": {
+      "platinum": 30,
+      "lowest": 10,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Soma Prime Blueprint": {
+      "platinum": 9,
+      "lowest": 7,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Soma Prime Receiver": {
+      "platinum": 40,
+      "lowest": 12,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Soma Prime Stock": {
+      "platinum": 32,
+      "lowest": 25,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Spira Prime Blade": {
+      "platinum": 20,
+      "lowest": 14,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Spira Prime Blueprint": {
+      "platinum": 30,
+      "lowest": 4,
+      "sellers": 9,
+      "outliers": 2,
+      "ducats": 15
+    },
+    "Spira Prime Pouch": {
+      "platinum": 60,
+      "lowest": 34,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Stradavar Prime Barrel": {
+      "platinum": 5,
+      "lowest": 5,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Stradavar Prime Blueprint": {
+      "platinum": 25,
+      "lowest": 12,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Stradavar Prime Receiver": {
+      "platinum": 7,
+      "lowest": 5,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Stradavar Prime Stock": {
+      "platinum": 15,
+      "lowest": 8,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Strun Prime Barrel": {
+      "platinum": 20,
+      "lowest": 8,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Strun Prime Blueprint": {
+      "platinum": 30,
+      "lowest": 25,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Strun Prime Receiver": {
+      "platinum": 18,
+      "lowest": 10,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Strun Prime Stock": {
+      "platinum": 9,
+      "lowest": 7,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Sybaris Prime Barrel": {
+      "platinum": 65,
+      "lowest": 49,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Sybaris Prime Blueprint": {
+      "platinum": 30,
+      "lowest": 7,
+      "sellers": 7,
+      "outliers": 1,
+      "ducats": 15
+    },
+    "Sybaris Prime Receiver": {
+      "platinum": 40,
+      "lowest": 10,
+      "sellers": 5,
+      "outliers": 1,
+      "ducats": 45
+    },
+    "Sybaris Prime Stock": {
+      "platinum": 24,
+      "lowest": 10,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Tatsu Prime Blade": {
+      "platinum": 8,
+      "lowest": 4,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Tatsu Prime Blueprint": {
+      "platinum": 8,
+      "lowest": 4,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Tatsu Prime Handle": {
+      "platinum": 80,
+      "lowest": 40,
+      "sellers": 5,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Tekko Prime Blade": {
+      "platinum": 50,
+      "lowest": 25,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Tekko Prime Blueprint": {
+      "platinum": 15,
+      "lowest": 5,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Tekko Prime Gauntlet": {
+      "platinum": 10,
+      "lowest": 7,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Tenora Prime Barrel": {
+      "platinum": 28,
+      "lowest": 20,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Tenora Prime Blueprint": {
+      "platinum": 10,
+      "lowest": 4,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Tenora Prime Receiver": {
+      "platinum": 29,
+      "lowest": 25,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Tenora Prime Stock": {
+      "platinum": 10,
+      "lowest": 5,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Tiberon Prime Barrel": {
+      "platinum": 19,
+      "lowest": 13,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Tiberon Prime Blueprint": {
+      "platinum": 8,
+      "lowest": 7,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 25
+    },
+    "Tiberon Prime Stock": {
+      "platinum": 50,
+      "lowest": 28,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Tigris Prime Barrel": {
+      "platinum": 13,
+      "lowest": 6,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Tigris Prime Blueprint": {
+      "platinum": 69,
+      "lowest": 50,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Tigris Prime Receiver": {
+      "platinum": 30,
+      "lowest": 10,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Tigris Prime Stock": {
+      "platinum": 30,
+      "lowest": 8,
+      "sellers": 5,
+      "outliers": 1,
+      "ducats": 15
+    },
+    "Tipedo Prime Blueprint": {
+      "platinum": 30,
+      "lowest": 5,
+      "sellers": 7,
+      "outliers": 3,
+      "ducats": 15
+    },
+    "Tipedo Prime Handle": {
+      "platinum": 46,
+      "lowest": 29,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Tipedo Prime Ornament": {
+      "platinum": 30,
+      "lowest": 10,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Titania Prime Blueprint": {
+      "platinum": 15,
+      "lowest": 14,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Titania Prime Chassis Blueprint": {
+      "platinum": 10,
+      "lowest": 10,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Titania Prime Neuroptics Blueprint": {
+      "platinum": 10,
+      "lowest": 9,
+      "sellers": 23,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Titania Prime Systems Blueprint": {
+      "platinum": 38,
+      "lowest": 34,
+      "sellers": 22,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Trinity Prime Blueprint": {
+      "platinum": 20,
+      "lowest": 18,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Trinity Prime Chassis Blueprint": {
+      "platinum": 11,
+      "lowest": 10,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Trinity Prime Neuroptics Blueprint": {
+      "platinum": 15,
+      "lowest": 10,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 25
+    },
+    "Trinity Prime Systems Blueprint": {
+      "platinum": 10,
+      "lowest": 10,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Trumna Prime Barrel": {
+      "platinum": 18,
+      "lowest": 12,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Trumna Prime Blueprint": {
+      "platinum": 4,
+      "lowest": 2,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Trumna Prime Receiver": {
+      "platinum": 18,
+      "lowest": 10,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Trumna Prime Stock": {
+      "platinum": 5,
+      "lowest": 4,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Valkyr Prime Blueprint": {
+      "platinum": 10,
+      "lowest": 6,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Valkyr Prime Chassis Blueprint": {
+      "platinum": 35,
+      "lowest": 34,
+      "sellers": 20,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Valkyr Prime Neuroptics Blueprint": {
+      "platinum": 33,
+      "lowest": 10,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Valkyr Prime Systems Blueprint": {
+      "platinum": 17,
+      "lowest": 14,
+      "sellers": 19,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Vasto Prime Barrel": {
+      "platinum": 33,
+      "lowest": 30,
+      "sellers": 4,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Vasto Prime Blueprint": {
+      "platinum": 10,
+      "lowest": 7,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Vasto Prime Receiver": {
+      "platinum": 10,
+      "lowest": 8,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Vauban Prime Blueprint": {
+      "platinum": 20,
+      "lowest": 19,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Vauban Prime Chassis Blueprint": {
+      "platinum": 28,
+      "lowest": 20,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 25
+    },
+    "Vauban Prime Systems Blueprint": {
+      "platinum": 70,
+      "lowest": 60,
+      "sellers": 6,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Vectis Prime Barrel": {
+      "platinum": 32,
+      "lowest": 20,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Vectis Prime Blueprint": {
+      "platinum": 15,
+      "lowest": 7,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Vectis Prime Receiver": {
+      "platinum": 59,
+      "lowest": 50,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Vectis Prime Stock": {
+      "platinum": 45,
+      "lowest": 25,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Velox Prime Barrel": {
+      "platinum": 18,
+      "lowest": 10,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Velox Prime Blueprint": {
+      "platinum": 13,
+      "lowest": 4,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Velox Prime Receiver": {
+      "platinum": 6,
+      "lowest": 4,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Venka Prime Blades": {
+      "platinum": 30,
+      "lowest": 7,
+      "sellers": 8,
+      "outliers": 2,
+      "ducats": 15
+    },
+    "Venka Prime Blueprint": {
+      "platinum": 35,
+      "lowest": 5,
+      "sellers": 8,
+      "outliers": 2,
+      "ducats": 45
+    },
+    "Venka Prime Gauntlet": {
+      "platinum": 25,
+      "lowest": 20,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Volnus Prime Blueprint": {
+      "platinum": 25,
+      "lowest": 4,
+      "sellers": 8,
+      "outliers": 2,
+      "ducats": 15
+    },
+    "Volnus Prime Handle": {
+      "platinum": 30,
+      "lowest": 25,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Volnus Prime Head": {
+      "platinum": 9,
+      "lowest": 6,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Volt Prime Blueprint": {
+      "platinum": 25,
+      "lowest": 15,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 25
+    },
+    "Volt Prime Chassis Blueprint": {
+      "platinum": 9,
+      "lowest": 8,
+      "sellers": 27,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Volt Prime Neuroptics Blueprint": {
+      "platinum": 20,
+      "lowest": 20,
+      "sellers": 23,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Volt Prime Systems Blueprint": {
+      "platinum": 13,
+      "lowest": 10,
+      "sellers": 18,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Wisp Prime Blueprint": {
+      "platinum": 39,
+      "lowest": 38,
+      "sellers": 19,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Wisp Prime Chassis Blueprint": {
+      "platinum": 19,
+      "lowest": 17,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Wisp Prime Neuroptics Blueprint": {
+      "platinum": 8,
+      "lowest": 5,
+      "sellers": 21,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Wisp Prime Systems Blueprint": {
+      "platinum": 10,
+      "lowest": 6,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Wukong Prime Blueprint": {
+      "platinum": 40,
+      "lowest": 32,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Wukong Prime Chassis Blueprint": {
+      "platinum": 15,
+      "lowest": 10,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Wukong Prime Neuroptics Blueprint": {
+      "platinum": 10,
+      "lowest": 10,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Wukong Prime Systems Blueprint": {
+      "platinum": 15,
+      "lowest": 15,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Wyrm Prime Blueprint": {
+      "platinum": 15,
+      "lowest": 12,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Wyrm Prime Carapace": {
+      "platinum": 18,
+      "lowest": 14,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Wyrm Prime Cerebrum": {
+      "platinum": 29,
+      "lowest": 23,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Wyrm Prime Systems": {
+      "platinum": 37,
+      "lowest": 34,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Xaku Prime Blueprint": {
+      "platinum": 16,
+      "lowest": 15,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Xaku Prime Chassis Blueprint": {
+      "platinum": 5,
+      "lowest": 4,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Xaku Prime Neuroptics Blueprint": {
+      "platinum": 6,
+      "lowest": 5,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Xaku Prime Systems Blueprint": {
+      "platinum": 6,
+      "lowest": 5,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Zakti Prime Barrel": {
+      "platinum": 30,
+      "lowest": 5,
+      "sellers": 9,
+      "outliers": 3,
+      "ducats": 45
+    },
+    "Zakti Prime Receiver": {
+      "platinum": 9,
+      "lowest": 6,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Zephyr Prime Blueprint": {
+      "platinum": 18,
+      "lowest": 16,
+      "sellers": 20,
+      "outliers": 0,
+      "ducats": 65
+    },
+    "Zephyr Prime Chassis Blueprint": {
+      "platinum": 10,
+      "lowest": 9,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 25
+    },
+    "Zephyr Prime Neuroptics Blueprint": {
+      "platinum": 10,
+      "lowest": 5,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Zephyr Prime Systems Blueprint": {
+      "platinum": 45,
+      "lowest": 40,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Zhuge Prime Barrel": {
+      "platinum": 70,
+      "lowest": 25,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Zhuge Prime Blueprint": {
+      "platinum": 15,
+      "lowest": 6,
+      "sellers": 5,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Zhuge Prime Grip": {
+      "platinum": 28,
+      "lowest": 6,
+      "sellers": 7,
+      "outliers": 1,
+      "ducats": 15
+    },
+    "Zhuge Prime Receiver": {
+      "platinum": 18,
+      "lowest": 7,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Zhuge Prime String": {
+      "platinum": 18,
+      "lowest": 9,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Zylok Prime Barrel": {
+      "platinum": 13,
+      "lowest": 5,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Zylok Prime Blueprint": {
+      "platinum": 16,
+      "lowest": 13,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Zylok Prime Receiver": {
+      "platinum": 10,
+      "lowest": 4,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Ayatan Amber Star": {
+      "platinum": 11,
+      "lowest": 1,
+      "sellers": 8,
+      "outliers": 2,
+      "ducats": null
+    },
+    "Ayatan Cyan Star": {
+      "platinum": 2,
+      "lowest": 1,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": null
+    },
+    "Daikyu Prime Lower Limb": {
+      "platinum": 5,
+      "lowest": 3,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Yareli Prime Chassis Blueprint": {
+      "platinum": 10,
+      "lowest": 2,
+      "sellers": 17,
+      "outliers": 2,
+      "ducats": 15
+    },
+    "Alternox Prime Blueprint": {
+      "platinum": 10,
+      "lowest": 8,
+      "sellers": 18,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Steflos Prime Receiver": {
+      "platinum": 30,
+      "lowest": 6,
+      "sellers": 8,
+      "outliers": 1,
+      "ducats": 15
+    },
+    "Gyre Prime Chassis Blueprint": {
+      "platinum": 7,
+      "lowest": 4,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Caliban Prime Neuroptics Blueprint": {
+      "platinum": 15,
+      "lowest": 10,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Kestrel Prime Blade": {
+      "platinum": 8,
+      "lowest": 5,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Perigale Prime Receiver": {
+      "platinum": 7,
+      "lowest": 4,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Corufell Prime Stock": {
+      "platinum": 10,
+      "lowest": 5,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Daikyu Prime String": {
+      "platinum": 7,
+      "lowest": 3,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Yareli Prime Blueprint": {
+      "platinum": 3,
+      "lowest": 2,
+      "sellers": 23,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Daikyu Prime Grip": {
+      "platinum": 15,
+      "lowest": 10,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Daikyu Prime Blueprint": {
+      "platinum": 4,
+      "lowest": 2,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Venato Prime Blueprint": {
+      "platinum": 5,
+      "lowest": 4,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Vadarya Prime Receiver": {
+      "platinum": 3,
+      "lowest": 2,
+      "sellers": 23,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Gyre Prime Neuroptics Blueprint": {
+      "platinum": 16,
+      "lowest": 9,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Caliban Prime Chassis Blueprint": {
+      "platinum": 4,
+      "lowest": 2,
+      "sellers": 19,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Kompressa Prime Barrel": {
+      "platinum": 18,
+      "lowest": 8,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Vadarya Prime Barrel": {
+      "platinum": 4,
+      "lowest": 4,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Perigale Prime Blueprint": {
+      "platinum": 4,
+      "lowest": 2,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Alternox Prime Barrel": {
+      "platinum": 6,
+      "lowest": 4,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Vadarya Prime Stock": {
+      "platinum": 10,
+      "lowest": 2,
+      "sellers": 9,
+      "outliers": 1,
+      "ducats": 15
+    },
+    "Voruna Prime Chassis Blueprint": {
+      "platinum": 10,
+      "lowest": 7,
+      "sellers": 19,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Afentis Prime Handle": {
+      "platinum": 10,
+      "lowest": 5,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Gyre Prime Blueprint": {
+      "platinum": 7,
+      "lowest": 4,
+      "sellers": 18,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Styanax Prime Neuroptics Blueprint": {
+      "platinum": 19,
+      "lowest": 10,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Citrine Prime Systems Blueprint": {
+      "platinum": 15,
+      "lowest": 8,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Sarofang Prime Blade": {
+      "platinum": 10,
+      "lowest": 8,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Kompressa Prime Blueprint": {
+      "platinum": 10,
+      "lowest": 1,
+      "sellers": 12,
+      "outliers": 3,
+      "ducats": 15
+    },
+    "Caliban Prime Blueprint": {
+      "platinum": 3,
+      "lowest": 2,
+      "sellers": 23,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Voruna Prime Systems Blueprint": {
+      "platinum": 8,
+      "lowest": 8,
+      "sellers": 26,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Yareli Prime Neuroptics Blueprint": {
+      "platinum": 10,
+      "lowest": 10,
+      "sellers": 26,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Alternox Prime Stock": {
+      "platinum": 10,
+      "lowest": 8,
+      "sellers": 19,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Sarofang Prime Handle": {
+      "platinum": 5,
+      "lowest": 3,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Voruna Prime Neuroptics Blueprint": {
+      "platinum": 4,
+      "lowest": 2,
+      "sellers": 20,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Afentis Prime Blade": {
+      "platinum": 15,
+      "lowest": 9,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Daikyu Prime Upper Limb": {
+      "platinum": 5,
+      "lowest": 4,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Citrine Prime Blueprint": {
+      "platinum": 20,
+      "lowest": 16,
+      "sellers": 21,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Steflos Prime Stock": {
+      "platinum": 9,
+      "lowest": 8,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Gyre Prime Systems Blueprint": {
+      "platinum": 5,
+      "lowest": 3,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Sarofang Prime Blueprint": {
+      "platinum": 9,
+      "lowest": 3,
+      "sellers": 10,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Venato Prime Handle": {
+      "platinum": 5,
+      "lowest": 4,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Kestrel Prime Grip": {
+      "platinum": 11,
+      "lowest": 8,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Athodai Prime Blueprint": {
+      "platinum": 8,
+      "lowest": 4,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Kestrel Prime Blueprint": {
+      "platinum": 7,
+      "lowest": 3,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Vadarya Prime Blueprint": {
+      "platinum": 9,
+      "lowest": 7,
+      "sellers": 14,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Venato Prime Blade": {
+      "platinum": 13,
+      "lowest": 9,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Corufell Prime Blueprint": {
+      "platinum": 8,
+      "lowest": 4,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Styanax Prime Chassis Blueprint": {
+      "platinum": 6,
+      "lowest": 4,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Perigale Prime Stock": {
+      "platinum": 10,
+      "lowest": 2,
+      "sellers": 10,
+      "outliers": 1,
+      "ducats": 15
+    },
+    "Athodai Prime Barrel": {
+      "platinum": 18,
+      "lowest": 15,
+      "sellers": 8,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Afentis Prime Barrel": {
+      "platinum": 13,
+      "lowest": 6,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Caliban Prime Systems Blueprint": {
+      "platinum": 15,
+      "lowest": 14,
+      "sellers": 20,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Alternox Prime Receiver": {
+      "platinum": 10,
+      "lowest": 3,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Styanax Prime Systems Blueprint": {
+      "platinum": 6,
+      "lowest": 3,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Corufell Prime Receiver": {
+      "platinum": 25,
+      "lowest": 20,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Citrine Prime Chassis Blueprint": {
+      "platinum": 10,
+      "lowest": 7,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Perigale Prime Barrel": {
+      "platinum": 20,
+      "lowest": 17,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Styanax Prime Blueprint": {
+      "platinum": 5,
+      "lowest": 4,
+      "sellers": 17,
+      "outliers": 0,
+      "ducats": 15
+    },
+    "Yareli Prime Systems Blueprint": {
+      "platinum": 15,
+      "lowest": 10,
+      "sellers": 21,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Steflos Prime Blueprint": {
+      "platinum": 9,
+      "lowest": 5,
+      "sellers": 18,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Kompressa Prime Receiver": {
+      "platinum": 5,
+      "lowest": 4,
+      "sellers": 13,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Afentis Prime Blueprint": {
+      "platinum": 14,
+      "lowest": 12,
+      "sellers": 20,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Corufell Prime Handle": {
+      "platinum": 7,
+      "lowest": 5,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Citrine Prime Neuroptics Blueprint": {
+      "platinum": 40,
+      "lowest": 37,
+      "sellers": 19,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Athodai Prime Receiver": {
+      "platinum": 13,
+      "lowest": 8,
+      "sellers": 9,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Steflos Prime Barrel": {
+      "platinum": 25,
+      "lowest": 20,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Voruna Prime Blueprint": {
+      "platinum": 23,
+      "lowest": 16,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 100
+    },
+    "Fass": {
+      "platinum": 15,
+      "lowest": 10,
+      "sellers": 7,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Jahu": {
+      "platinum": 10,
+      "lowest": 8,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Khra": {
+      "platinum": 10,
+      "lowest": 6,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Lohk": {
+      "platinum": 10,
+      "lowest": 8,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Netra": {
+      "platinum": 10,
+      "lowest": 8,
+      "sellers": 12,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Ris": {
+      "platinum": 10,
+      "lowest": 10,
+      "sellers": 11,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Vome": {
+      "platinum": 10,
+      "lowest": 9,
+      "sellers": 15,
+      "outliers": 0,
+      "ducats": 45
+    },
+    "Xata": {
+      "platinum": 10,
+      "lowest": 6,
+      "sellers": 16,
+      "outliers": 0,
+      "ducats": 45
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "wf-offline-data",
+  "version": "1.0.0",
+  "private": true,
+  "description": "离线装备库（warframe-items）：属性 / 掉落 / 制作表，供 wf-mcp-lite 读取",
+  "dependencies": {
+    "warframe-items": "^1.1269.87"
+  }
+}

@@ -1,0 +1,32 @@
+# 依赖与运行时（不提交）
+node_modules/
+tools/warframe-mcp/node_modules/
+tools/warframe-mcp/package-lock.json
+tools/warframe-inv.exe
+tools/worldstate/node_modules/
+tools/wf-mcp-lite/data/
+tools/worldstate-cache.json
+scripts/.wiki_zh_cache.json
+
+# 本地配置与凭据（含 API Key / AlecaFrame token，绝对不要提交）
+config.json
+tools/config.json
+.env
+
+# Electron 用户数据（含 wiki Cookie）
+userdata/
+userdata-*/
+
+# 日志与临时文件
+*.log
+*.tmp
+debug.log
+server.log
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp

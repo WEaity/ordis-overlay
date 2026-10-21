@@ -1,0 +1,1386 @@
+/* ============================================================
+   style.css —— Warframe「新闻面板」磨砂风
+   ------------------------------------------------------------
+   收起：浮在右下角的飞船全息图标（可拖动、可等比缩放）
+   展开：深灰半透明磨砂面板，白字、细灰边、直角
+   只保留最终生效的规则：之前的青色全息主题、CSS 立方体、
+   HUD 角标、扫描线等已被替换的样式全部删除。
+   ============================================================ */
+
+:root {
+  --text: #f1f3f5;
+  --dim: #a7aeb6;
+  --faint: rgba(255, 255, 255, 0.42);
+
+  --panel-bg: rgba(20, 22, 25, 0.86);
+  --panel-solid: rgba(24, 27, 31, 0.97);
+  --line: rgba(255, 255, 255, 0.28);
+  --line-soft: rgba(255, 255, 255, 0.13);
+
+  --danger: #ff8f7a;
+  --ok: #8fe0b8;
+  --mono: "Cascadia Mono", Consolas, "Courier New", monospace;
+
+  --bubble-size: 90px;
+}
+
+* { box-sizing: border-box; }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;          /* 透明窗口：页面本身不能有底色 */
+  overflow: hidden;
+  font-family: "Microsoft YaHei", "Segoe UI", "Segoe UI Emoji", system-ui, sans-serif;
+  color: var(--text);
+  font-size: 12.5px;
+  user-select: none;
+}
+
+#root {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;                 /* 兜底：任何情况下内容都不许跑出窗口 */
+}
+
+/* ============================================================
+   收起态：飞船全息图标
+   ============================================================ */
+
+#bubble {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: var(--bubble-size);
+  height: var(--bubble-size);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  opacity: 0.82;
+  transition: opacity 0.22s ease;
+}
+
+#bubble:hover { opacity: 1; }
+
+/* 展开时图标淡出，避免和面板抢位置 */
+body.expanded #bubble {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 图标在屏幕左半边时，面板往右长，图标贴窗口左边 */
+body.panel-right #bubble {
+  left: 0;
+  right: auto;
+}
+
+/* 图标容器：负责浮动与闪烁，不参与拖动热区计算 */
+.holo {
+  width: 92%;
+  height: 92%;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  animation:
+    holo-float 4.4s ease-in-out infinite,
+    holo-flicker 3.2s steps(1, end) infinite;
+}
+
+.holo-ship {
+  width: 92%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+  transform: perspective(700px) rotateX(14deg) rotateZ(-4deg);
+  transition: transform 0.3s ease;
+  /* 与面板同色系：银白全息，不再用蓝色 */
+  filter:
+    grayscale(1)
+    brightness(1.22)
+    contrast(1.06)
+    drop-shadow(0 0 6px rgba(238, 244, 252, 0.45))
+    drop-shadow(0 0 16px rgba(190, 205, 220, 0.28));
+}
+
+/* 窗口在屏幕右半边 → 机头朝左 */
+body.face-left .holo-ship {
+  transform: perspective(700px) rotateX(14deg) rotateZ(-4deg) scaleX(-1);
+}
+
+/* 扫描线：叠在图标上，做出投影感 */
+.holo-scan {
+  position: absolute;
+  inset: 2%;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.42;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(220, 246, 255, 0.12) 0 1px,
+    transparent 1px 4px
+  );
+  background-size: 100% 8px;
+  mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent);
+  animation: holo-scan 2.6s linear infinite;
+}
+
+@keyframes holo-float {
+  0%, 100% { transform: translateY(-2px); }
+  50%      { transform: translateY(2px); }
+}
+
+/* 不连续跳变，模拟信号不稳 */
+@keyframes holo-flicker {
+  0%, 89%, 100% { opacity: 1; }
+  90%           { opacity: 0.55; }
+  91%           { opacity: 1; }
+  95%           { opacity: 0.7; }
+  96%           { opacity: 1; }
+}
+
+@keyframes holo-scan {
+  from { background-position: 0 0; }
+  to   { background-position: 0 8px; }
+}
+
+/* 等比缩放的把手：默认隐形，鼠标移到图标上才出现 */
+.bubble-grip {
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  width: 18px;
+  height: 18px;
+  opacity: 0;
+  cursor: nwse-resize;
+  transition: opacity 0.15s ease;
+  background:
+    linear-gradient(135deg, transparent 52%, rgba(255, 255, 255, 0.65) 52%, rgba(255, 255, 255, 0.65) 58%, transparent 58%);
+}
+
+body.panel-right .bubble-grip {
+  right: auto;
+  left: 3px;
+}
+
+#bubble:hover .bubble-grip,
+body.bubble-resizing .bubble-grip { opacity: 1; }
+
+body.bubble-resizing,
+body.bubble-resizing * {
+  cursor: nwse-resize !important;
+  user-select: none;
+}
+
+/* ============================================================
+   展开面板
+   ============================================================ */
+
+#panel {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  right: 80px;
+  bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 22%),
+    var(--panel-bg);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(10px) saturate(112%);
+  -webkit-backdrop-filter: blur(10px) saturate(112%);
+
+  opacity: 0;
+  transform: scale(0.86);
+  transform-origin: 100% 100%;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+/* 图标在左半边时，面板从窗口左边往右长 */
+body.panel-right #panel {
+  left: 80px;
+  right: 8px;
+  transform-origin: 0% 100%;
+}
+
+body.expanded #panel {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+/* 点开时从小放大，原点钉在图标那一角 */
+body.expanded #panel {
+  animation: panel-grow 0.22s cubic-bezier(0.16, 0.84, 0.34, 1);
+}
+
+@keyframes panel-grow {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ============================================================
+   标题栏：◆ 新闻 │ AI 指挥            ☰
+   ============================================================ */
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  height: 38px;
+  padding: 0 10px;
+  background: rgba(255, 255, 255, 0.035);
+  border-bottom: 1px solid var(--line-soft);
+  /* 拖动由 index.html 的 JS 接管：CSS 的 drag 区域在这个透明窗口 + 缩放动画下会失灵 */
+  -webkit-app-region: no-drag;
+  cursor: grab;
+}
+
+.panel-head:active { cursor: grabbing; }
+
+/* 标题里的 ☰、Tab 都是可点/可选中的，不能吃掉拖动手势 */
+.panel-head button,
+.panel-head .menu-btn,
+.panel-head .tab,
+.panel-head .dot {
+  -webkit-app-region: no-drag;
+}
+
+.panel-title {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  min-width: 0;
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.panel-head .dot {
+  width: 6px;
+  height: 6px;
+  margin-right: 9px;
+  background: #fff;
+  opacity: 0.9;
+  transform: rotate(45deg);
+  flex: 0 0 auto;
+}
+
+.tab {
+  color: var(--dim);
+  font-weight: 600;
+  padding: 0 4px;
+  white-space: nowrap;
+}
+
+.tab.on { color: #fff; font-weight: 700; }
+
+.tab-sep {
+  width: 1px;
+  height: 12px;
+  margin: 0 12px;
+  background: rgba(255, 255, 255, 0.25);
+  flex: 0 0 auto;
+}
+
+/* ☰：鼠标进面板才浮现 */
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.22s ease, border-color 0.15s ease, background 0.15s ease;
+  flex: 0 0 auto;
+}
+
+#panel:hover .menu-btn,
+.menu-btn.open,
+.menu-btn:focus-visible { opacity: 1; }
+
+.menu-btn i {
+  display: block;
+  width: 12px;
+  height: 1.5px;
+  background: #fff;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+.menu-btn:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.menu-btn.open i:nth-child(1) { transform: translateY(4.5px) rotate(45deg); }
+.menu-btn.open i:nth-child(2) { opacity: 0; }
+.menu-btn.open i:nth-child(3) { transform: translateY(-4.5px) rotate(-45deg); }
+
+/* ---------- 下拉菜单 ---------- */
+
+.menu {
+  position: absolute;
+  top: 44px;
+  right: 8px;
+  min-width: 132px;
+  padding: 4px;
+  z-index: 20;
+  background: var(--panel-solid);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  animation: menu-in 0.14s ease-out;
+}
+
+body.panel-right .menu {
+  right: auto;
+  left: 8px;
+}
+
+.menu[hidden] { display: none; }
+
+@keyframes menu-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 1px;
+  background: transparent;
+  color: #e9edf1;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background: rgba(255, 255, 255, 0.09);
+  color: #fff;
+}
+
+.menu-ico { width: 14px; color: #cfd6dd; text-align: center; }
+
+.menu-item.danger { color: #f0b8b8; }
+.menu-item.danger:hover { background: rgba(255, 120, 120, 0.12); }
+
+/* ============================================================
+   聊天区
+   ============================================================ */
+
+.log {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;                    /* 没有它长内容会把面板顶大 */
+  overflow-y: auto;
+  overflow-x: hidden;
+  overflow-wrap: anywhere;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  user-select: text;
+}
+
+/* flex 列里的子项默认会被压扁，锁成不收缩，让 .log 自己滚 */
+.log > * { flex: 0 0 auto; }
+
+/* 空聊天区的待机水印 */
+.log::before {
+  content: "ORBITER SYSTEM // ORDIS ONLINE";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 56%;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.42em;
+  color: rgba(255, 255, 255, 0.075);
+  pointer-events: none;
+}
+
+.log:has(.msg)::before { display: none; }
+
+.log::-webkit-scrollbar { width: 6px; }
+.log::-webkit-scrollbar-track { background: transparent; }
+.log::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 3px;
+}
+.log::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.32); }
+
+.hint {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.85;
+  color: var(--dim);
+}
+
+.hint strong { color: #fff; font-weight: 700; }
+
+.log:has(.msg) .hint { display: none; }
+
+/* ---------- 气泡 ---------- */
+
+.msg {
+  position: relative;
+  max-width: 88%;
+  margin: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--line-soft);
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.055);
+  color: var(--text);
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.6;
+  align-self: flex-start;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* 我说的：贴右，右边一道亮边 */
+.msg.mine {
+  align-self: flex-end;
+  background: rgba(255, 255, 255, 0.115);
+  border-color: rgba(255, 255, 255, 0.22);
+  border-right: 2px solid rgba(255, 255, 255, 0.85);
+}
+
+.msg.pending {
+  color: var(--dim);
+  font-style: italic;
+}
+
+.msg.error {
+  color: #ffd0c6;
+  background: rgba(255, 90, 60, 0.12);
+  border-color: rgba(255, 130, 100, 0.4);
+  white-space: pre-wrap;
+}
+
+.msg.note {
+  align-self: center;
+  max-width: 100%;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.03em;
+  color: var(--ok);
+  background: rgba(60, 200, 150, 0.08);
+  border-color: rgba(80, 230, 175, 0.28);
+}
+
+/* AI 的长回复：撑满宽度，滚动交给外层 .log */
+.msg.rich {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* ---------- 带图消息 ---------- */
+
+.msg.with-image {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 92%;
+}
+
+.msg-img {
+  display: block;
+  max-width: 100%;
+  max-height: 190px;
+  border: 1px solid var(--line-soft);
+  border-radius: 2px;
+  cursor: zoom-in;
+  object-fit: contain;
+}
+
+.msg-img.zoomed {
+  max-height: 70vh;
+  cursor: zoom-out;
+}
+
+/* ============================================================
+   Markdown 富文本
+   ============================================================ */
+
+.msg.rich > :first-child { margin-top: 0; }
+.msg.rich > :last-child { margin-bottom: 0; }
+
+.msg.rich p { margin: 0 0 6px; }
+
+.msg.rich h1,
+.msg.rich h2,
+.msg.rich h3 {
+  margin: 10px 0 5px;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.msg.rich h1 { font-size: 15px; }
+.msg.rich h2 { font-size: 14px; }
+.msg.rich h3 { font-size: 13px; }
+
+.msg.rich strong { color: #fff; font-weight: 700; }
+.msg.rich em { color: #e7ebef; }
+
+/* 无序列表：圆点换成小菱形 ◆ */
+.msg.rich ul {
+  margin: 5px 0;
+  padding-left: 16px;
+  list-style: none;
+}
+
+.msg.rich ul > li {
+  position: relative;
+  margin: 3px 0;
+  padding-left: 14px;
+}
+
+.msg.rich ul > li::before {
+  content: "\25C6";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 8px;
+  line-height: 1.95;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.msg.rich ol {
+  margin: 5px 0;
+  padding-left: 22px;
+}
+
+.msg.rich ol > li { margin: 3px 0; }
+
+.msg.rich a {
+  color: #cfe6ff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.msg.rich blockquote {
+  margin: 6px 0;
+  padding: 4px 10px;
+  border-left: 2px solid var(--line);
+  color: var(--dim);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.msg.rich hr {
+  border: 0;
+  border-top: 1px solid var(--line-soft);
+  margin: 10px 0;
+}
+
+/* 行内代码 */
+.msg.rich :not(pre) > code {
+  padding: 1px 5px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid var(--line-soft);
+  color: #ffd9a8;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  word-break: break-all;
+}
+
+/* 表格：窄窗里允许横向滚动 */
+.msg.rich table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 6px 0;
+  border-collapse: collapse;
+  overflow-x: auto;
+  font-size: 11.5px;
+}
+
+.msg.rich th,
+.msg.rich td {
+  padding: 5px 8px;
+  border: 1px solid var(--line-soft);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.msg.rich th {
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+  font-weight: 700;
+}
+
+.msg.rich tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* ============================================================
+   代码块 + 复制按钮
+   ============================================================ */
+
+.code-wrap {
+  position: relative;
+  margin: 8px 0;
+  border: 1px solid var(--line-soft);
+  border-radius: 3px;
+  overflow: hidden;
+  background: #0b0d10;
+}
+
+.code-head {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 24px;
+  padding: 0 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.copy-btn {
+  padding: 2px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #dfe4e9;
+  font: inherit;
+  font-size: 10.5px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.copy-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.copy-btn.ok {
+  color: var(--ok);
+  border-color: rgba(143, 224, 184, 0.5);
+}
+
+.code-wrap pre {
+  margin: 0;
+  padding: 8px 10px;
+  max-height: 220px;
+  overflow: auto;
+  background: transparent;
+}
+
+.code-wrap pre code {
+  display: block;
+  color: #d7e3f2;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.code-wrap pre::-webkit-scrollbar { width: 8px; height: 8px; }
+.code-wrap pre::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+/* ============================================================
+   截图预览条（Ctrl+V 之后出现在输入框上方）
+   ============================================================ */
+
+.paste-preview {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+  padding: 8px 10px;
+  border-top: 1px solid var(--line-soft);
+  background: rgba(255, 255, 255, 0.04);
+  animation: paste-in 0.16s ease-out;
+}
+
+/* display:flex 会盖掉 [hidden] 的 display:none，必须显式补回来 */
+.paste-preview[hidden] { display: none !important; }
+
+@keyframes paste-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.paste-thumb-wrap {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.paste-thumb {
+  display: block;
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: #000;
+}
+
+.paste-remove {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+  background: #26292e;
+  color: #fff;
+  font-size: 11px;
+  line-height: 14px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.paste-remove:hover { background: #b4453a; }
+
+.paste-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.paste-title {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  color: #fff;
+}
+
+.paste-size {
+  font-size: 10.5px;
+  color: var(--dim);
+}
+
+/* ============================================================
+   输入区
+   ============================================================ */
+
+.composer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  min-width: 0;
+  padding: 10px 12px;
+  border-top: 1px solid var(--line-soft);
+}
+
+#msg {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font: inherit;
+  font-size: 12px;
+  outline: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+#msg::placeholder {
+  color: var(--faint);
+  font-size: 10.5px;
+  letter-spacing: 0.01em;
+}
+
+#msg:focus {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+#send {
+  flex: 0 0 auto;
+  height: 34px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+#send:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+#send:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* ============================================================
+   面板右下角的拉伸把手
+   ============================================================ */
+
+.resizer {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  width: 16px;
+  height: 16px;
+  z-index: 5;
+  opacity: 0;
+  cursor: nwse-resize;
+  transition: opacity 0.18s ease;
+  background:
+    linear-gradient(135deg, transparent 46%, rgba(255, 255, 255, 0.55) 46%, rgba(255, 255, 255, 0.55) 52%, transparent 52%),
+    linear-gradient(135deg, transparent 66%, rgba(255, 255, 255, 0.3) 66%, rgba(255, 255, 255, 0.3) 72%, transparent 72%);
+}
+
+body.panel-right .resizer {
+  right: auto;
+  left: 6px;
+}
+
+body.expanded .resizer { opacity: 0.55; }
+body.expanded .resizer:hover { opacity: 1; }
+
+body.resizing,
+body.resizing * {
+  cursor: nwse-resize !important;
+  user-select: none;
+}
+
+/* ============================================================
+   设置弹窗
+   ============================================================ */
+
+.mask {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+}
+
+.mask[hidden] { display: none; }
+
+.settings {
+  width: min(320px, 100%);
+  max-height: 84vh;
+  overflow-y: auto;
+  padding: 16px;
+  background: var(--panel-solid);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
+}
+
+/* 凭据分组标题：一条细线 + 小字，跟面板里的分区保持一致 */
+.settings-group {
+  margin: 12px 0 2px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line-soft);
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.settings-title {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.settings-tip {
+  margin: 0 0 8px;
+  font-size: 10.5px;
+  line-height: 1.6;
+  color: var(--dim);
+}
+
+.settings-tip.error { color: var(--danger); }
+
+.settings-label {
+  display: block;
+  margin: 10px 0 6px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+  text-transform: uppercase;
+}
+
+.settings-input {
+  width: 100%;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font: inherit;
+  font-size: 12px;
+  outline: none;
+}
+
+.settings-input:focus { border-color: rgba(255, 255, 255, 0.5); }
+
+.settings-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.settings-spacer { flex: 1 1 auto; }
+
+.btn {
+  height: 30px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #eef1f4;
+  font: inherit;
+  font-size: 11.5px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:hover { background: rgba(255, 255, 255, 0.14); }
+
+.btn.primary {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.42);
+  font-weight: 700;
+}
+
+.btn.primary:hover { background: rgba(255, 255, 255, 0.24); }
+
+.btn.ghost { background: transparent; }
+
+.btn.small {
+  height: 26px;
+  padding: 0 9px;
+  font-size: 10.5px;
+}
+
+.btn:disabled { opacity: 0.45; cursor: default; }
+
+/* ============================================================
+   拖动光标反馈
+   ============================================================ */
+
+body.dragging,
+body.dragging * {
+  cursor: grabbing !important;
+  user-select: none;
+}
+
+/* 除输入框、按钮、菜单等交互元素外，其余区域不参与系统拖动 */
+input,
+button,
+textarea,
+select,
+a,
+.log,
+.composer,
+.panel-head,
+.resizer,
+.menu,
+.mask,
+.settings,
+.bubble-grip {
+  -webkit-app-region: no-drag;
+}
+/* 流式输出时行尾的闪烁光标 */
+.msg.streaming::after {
+  content: "▍";
+  margin-left: 2px;
+  opacity: 0.65;
+  animation: caret-blink 1s steps(1, end) infinite;
+}
+
+@keyframes caret-blink {
+  0%, 49%  { opacity: 0.65; }
+  50%, 99% { opacity: 0; }
+}
+/* ============================================================
+   开核桃秒选：🎁 按钮 + 结论气泡
+   ============================================================ */
+#relic-btn {
+  flex: 0 0 auto;
+  width: 44px;
+  padding: 0;
+  font-family: var(--mono);
+  font-size: 17px;
+  line-height: 1;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+#relic-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.18);
+}
+
+#relic-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+  box-shadow: none;
+}
+
+/* 结论气泡：左侧一道暖色边，和普通问答区分开 */
+.msg.relic {
+  border-left: 2px solid #e8b04a;
+  background: rgba(232, 176, 74, 0.07);
+}
+
+.msg.relic strong {
+  color: #ffd88a;
+}
+/* 结论气泡的正文保持正常白色，只有推荐名是暖色 */
+.msg.relic { color: var(--text); }
+.msg.relic { background: rgba(232, 176, 74, 0.045); }
+
+/* AlecaFrame 这种大小写敏感的单词别被 uppercase 改掉 */
+.settings-label { text-transform: none; letter-spacing: 0.06em; }
+/* ===== 菜单：二级展开 + 树状视图（v1.5） ===== */
+
+/* 二级菜单用 grid-template-rows 0fr → 1fr 做高度过渡，比 max-height 准 */
+.menu-sub {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  overflow: hidden;
+  transition: grid-template-rows 0.22s ease, opacity 0.18s ease;
+}
+
+.menu-sub[data-open="true"] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.menu-sub-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.menu-item.has-sub {
+  justify-content: flex-start;
+}
+
+.menu-chev {
+  margin-left: auto;
+  padding-left: 10px;
+  font-size: 13px;
+  line-height: 1;
+  opacity: 0.65;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.menu-item.has-sub[aria-expanded="true"] .menu-chev {
+  transform: rotate(90deg);
+  opacity: 1;
+}
+
+.menu-item.sub {
+  padding-left: 26px;
+  font-size: 11.5px;
+  color: var(--dim);
+}
+
+.menu-item.sub:hover {
+  color: #fff;
+}
+
+/* 菜单永远盖在二级视图上面 */
+.menu { z-index: 9; }
+
+/* ===== 二级视图：盖住对话区，标题条 + 返回 ===== */
+.subview {
+  position: absolute;
+  inset: 38px 0 0 0;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, rgba(23, 26, 30, 0.98) 0%, rgba(16, 18, 21, 0.98) 100%);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.subview.in {
+  opacity: 1;
+  transform: none;
+}
+
+.subview-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--line-soft);
+  flex: 0 0 auto;
+}
+
+.sub-back {
+  padding: 3px 8px;
+  background: transparent;
+  border: 1px solid var(--line-soft);
+  color: var(--dim);
+  font-size: 11px;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.sub-back:hover {
+  color: #fff;
+  border-color: var(--line);
+}
+
+.sub-title {
+  margin: 0;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+
+.subview-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+.sub-note {
+  margin: 0 0 10px;
+  font-size: 11px;
+  line-height: 1.75;
+  color: var(--dim);
+}
+
+.kv {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 14px;
+  margin: 8px 0 14px;
+  font-size: 11.5px;
+}
+
+.kv dt { color: var(--dim); }
+.kv dd {
+  margin: 0;
+  color: #e9edf2;
+  font-family: var(--mono);
+}
+
+.sub-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.settings-tip.ok { color: #9fe8b0; }
+/* .subview 设了 display:flex，会盖掉 [hidden] 的 display:none —— 结果是一层透明覆盖物
+   挡住对话区，滚轮事件全被它吃掉（表现为对话不能上下滚动）。这里补回隐藏语义。 */
+.subview[hidden] { display: none !important; }
+.subview-body[hidden] { display: none !important; }
+/* ============================================================
+   Ordis 全息晶体图标（收起态）
+   原图带纯黑背景，已预处理成透明 PNG（亮度→alpha），
+   这样在透明窗口里不会出现黑方块；mix-blend-mode 再补一层发光感。
+   ============================================================ */
+.holo,
+.holo-ship,
+.holo-scan {
+  display: none !important;
+}
+
+/* ============================================================
+   收起态图标：Ordis 晶体（透明 PNG）
+   - 图片已抠成真透明，因此不需要 mix-blend-mode
+   - 动效：悬浮 ±3px / 呼吸发光 8→15px + 透明度 / ±1° 微摆
+   ============================================================ */
+
+/* 图片自带一圈粒子光轨，页面里那圈虚线环就不需要了 */
+.bubble-ring {
+  display: none !important;
+}
+
+/* 图标区域必须是全透明的：任何底色/边框/毛玻璃都会挡住背后的游戏画面 */
+#bubble,
+#bubble * {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* 伪元素原本用来画底盘，现在一律不生成 */
+#bubble::before,
+#bubble::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+
+.ordis-avatar {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  mix-blend-mode: normal;
+  filter: drop-shadow(0 0 8px rgba(100, 180, 255, 0.8)) contrast(1.06) saturate(1.06);
+  animation:
+    ordis-float 4.2s ease-in-out infinite,
+    ordis-glow 3.2s ease-in-out infinite;
+  will-change: transform, filter, opacity;
+}
+
+/* 悬浮：上下 ±3px，顺带极轻微摆 */
+@keyframes ordis-float {
+  0%, 100% { transform: translateY(-3px) rotate(-1deg); }
+  50%      { transform: translateY(3px)  rotate(1deg); }
+}
+
+/* 呼吸：光晕半径 8px → 15px，透明度 .85 → 1 */
+@keyframes ordis-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(100, 180, 255, 0.8)) contrast(1.06) saturate(1.06);
+    opacity: 0.85;
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(120, 200, 255, 0.95)) contrast(1.06) saturate(1.06);
+    opacity: 1;
+  }
+}
+
+/* 悬停：停掉动画再改滤镜（动画会盖掉普通声明） */
+#bubble:hover .ordis-avatar {
+  animation: none;
+  transform: translateY(0) rotate(0deg);
+  opacity: 1;
+  filter: drop-shadow(0 0 18px rgba(140, 215, 255, 0.95)) brightness(1.06) contrast(1.12) saturate(1.1);
+}
+/* ============================================================
+   点击图标时不要任何“方框”：焦点轮廓 / 边框 / 背景 / 阴影 / 点击高亮
+   ============================================================ */
+#bubble,
+#bubble *,
+#bubble:link,
+#bubble:visited,
+#bubble:hover,
+#bubble:active,
+#bubble:focus,
+#bubble:focus-visible,
+#bubble *:hover,
+#bubble *:active,
+#bubble *:focus,
+#bubble *:focus-visible {
+  outline: none !important;
+  outline-offset: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+
+/* 图片本身也不许出现方框或圆角裁切 */
+.ordis-avatar {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+/* ============================================================
+   遗物模式（🎁 高亮 + 常驻锁定）
+   ============================================================ */
+#relic-btn.on {
+  background: rgba(232, 176, 74, 0.16);
+  border-color: rgba(232, 176, 74, 0.75);
+  box-shadow: 0 0 10px rgba(232, 176, 74, 0.22);
+  color: #ffd88a;
+}
+
+#relic-btn.on::after {
+  content: "";
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #e8b04a;
+  box-shadow: 0 0 6px rgba(232, 176, 74, 0.9);
+}
+
+#relic-btn { position: relative; }
+
+/* 常驻模式下给面板一道很淡的暖色边，提示"现在是锁定状态" */
+body.relic-mode #panel {
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(232, 176, 74, 0.28);
+}
+
+/* 数据视图里的辅助样式 */
+.kv-dim { color: rgba(255, 255, 255, 0.45); font-size: 10.5px; }
+.sub-actions.wrap { flex-wrap: wrap; gap: 8px; }
+.sub-actions.wrap .btn { flex: 1 1 44%; }

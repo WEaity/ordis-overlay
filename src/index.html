@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Game Overlay</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="root">
+    <!-- 展开后的对话面板：尺寸由窗口决定，图标在哪半边面板就往另一边长 -->
+    <section id="panel" aria-label="助手面板">
+      <header class="panel-head">
+        <span class="panel-title">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="tab on">Ordis</span>
+          <span class="tab-sep" aria-hidden="true"></span>
+          <span class="tab">智能系统</span>
+        </span>
+        <!-- ☰ 菜单按钮：默认透明，鼠标进面板才浮现（见 style.css .menu-btn） -->
+        <button id="menu-btn" class="menu-btn" type="button" title="菜单"
+                aria-haspopup="true" aria-expanded="false" aria-label="菜单">
+          <i></i><i></i><i></i>
+        </button>
+      </header>
+
+      <!-- 下拉菜单：设置（点开展开二级项）/ 退出 -->
+      <div id="menu" class="menu" hidden role="menu" aria-label="主菜单">
+        <button id="menu-settings" class="menu-item has-sub" type="button" role="menuitem"
+                aria-haspopup="true" aria-expanded="false">
+          <span class="menu-ico">⚙</span><span class="menu-text">设置</span><span class="menu-chev">›</span>
+        </button>
+
+        <!-- 二级菜单：整体高度从 0 过渡到自然高度（grid-template-rows 0fr → 1fr） -->
+        <div id="menu-sub" class="menu-sub" data-open="false">
+          <div class="menu-sub-inner">
+            <button class="menu-item sub" type="button" role="menuitem" data-view="relic">
+              <span class="menu-ico">◈</span><span class="menu-text">遗物速查数据更新</span>
+            </button>
+            <button class="menu-item sub" type="button" role="menuitem" data-view="credentials">
+              <span class="menu-ico">⌘</span><span class="menu-text">API 凭据</span>
+            </button>
+          </div>
+        </div>
+
+        <button class="menu-item danger" type="button" role="menuitem" data-action="quit">
+          <span class="menu-ico">✕</span><span class="menu-text">退出</span>
+        </button>
+      </div>
+
+      <!-- 二级视图：盖在对话区上面（标题 + 返回 + 内容），不弹遮罩 -->
+      <section id="subview" class="subview" hidden aria-live="polite">
+        <header class="subview-head">
+          <button id="sub-back" class="sub-back" type="button">‹ 返回</button>
+          <h2 id="sub-title" class="sub-title">设置</h2>
+        </header>
+
+        <!-- 视图 1：遗物速查数据更新 -->
+        <div id="view-relic" class="subview-body" hidden>
+          <p class="sub-note">秒选用的数据全部存在本地：部件表 + 中文名 + 市场价，识别后只查本地，不再联网。</p>
+          <dl class="kv">
+            <dt>部件表</dt><dd><span id="relic-parts">—</span>　<span id="relic-parts-at" class="kv-dim">—</span></dd>
+            <dt>价格表</dt><dd><span id="relic-priced">—</span>　<span id="relic-prices-at" class="kv-dim">—</span></dd>
+            <dt>中英对照</dt><dd id="relic-zh">—</dd>
+          </dl>
+          <p class="sub-note" id="relic-tip">先更新部件信息（几秒），再更新价格（1–3 分钟，可继续聊天）。</p>
+          <div class="sub-actions wrap">
+            <button id="relic-update-parts" class="btn ghost" type="button">更新部件信息</button>
+            <button id="relic-update-prices" class="btn primary" type="button">更新价格信息</button>
+          </div>
+        </div>
+
+        <!-- 视图 2：API 凭据 -->
+        <div id="view-credentials" class="subview-body" hidden>
+          <p class="sub-note">保存后立即生效；库存服务会自动重连，不用重启。</p>
+
+          <label class="settings-label" for="apiKey">DeepSeek API Key</label>
+          <input id="apiKey" class="settings-input" type="password" placeholder="sk-..." autocomplete="off" spellcheck="false" />
+
+          <label class="settings-label" for="alecaUser">AlecaFrame UserHash</label>
+          <input id="alecaUser" class="settings-input" type="password" placeholder="在 AlecaFrame 的 Stats 页复制" autocomplete="off" spellcheck="false" />
+
+          <label class="settings-label" for="alecaToken">AlecaFrame PublicToken</label>
+          <input id="alecaToken" class="settings-input" type="password" placeholder="在 AlecaFrame 的 Stats 页复制" autocomplete="off" spellcheck="false" />
+
+          <p class="settings-tip" id="settings-tip">保存后立即生效，不用重启服务。</p>
+
+          <div class="sub-actions">
+            <button id="settings-clear" class="btn ghost small" type="button" title="只清空这轮会话的记忆，不动凭据">清空上下文</button>
+            <span class="settings-spacer"></span>
+            <button id="settings-save" class="btn primary" type="button">保存配置</button>
+          </div>
+        </div>
+      </section>
+
+      <div id="log" class="log">
+        <p class="hint"><strong>Operator，通讯链路已建立。</strong><br>Ordis 已经为您准备好了始源星系的实时情报。<br>请输入装备名称查询市场价，或按 Ctrl+V 直接上传截图。</p>
+      </div>
+
+      <!-- 粘贴截图后的待发送预览（默认隐藏） -->
+      <div id="paste-preview" class="paste-preview" hidden>
+        <div class="paste-thumb-wrap">
+          <img id="paste-thumb" class="paste-thumb" alt="待发送的截图" />
+          <button id="paste-remove" class="paste-remove" type="button" title="取消这张图">×</button>
+        </div>
+        <div class="paste-meta">
+          <span class="paste-title">IMG // READY</span>
+          <span id="paste-size" class="paste-size"></span>
+        </div>
+      </div>
+
+      <div class="composer">
+        <input id="msg" type="text" placeholder="向 Ordis 下达指令…（可粘贴截图）" autocomplete="off" spellcheck="false" />
+        <button id="relic-btn" type="button" title="开核桃秒选：先 Ctrl+V 粘贴奖励截图，再点这里（Alt+R）">🎁</button>
+        <button id="send" type="button">发送</button>
+      </div>
+
+      <!-- 拖动这个把手可以改窗口大小（右下角两道斜线） -->
+      <div id="resizer" class="resizer" title="拖动调整大小"></div>
+    </section>
+
+    <!-- 收起态：浮在屏幕角落的飞船全息图标，点一下展开面板，拖动可移动位置 -->
+    <div id="bubble" title="点击展开面板，拖动可移动">
+      <span class="bubble-ring"></span>
+      <img
+        class="ordis-avatar"
+        src="../assets/ordis_icon.webp"
+        alt=""
+        draggable="false"
+      />
+      <div id="bubble-grip" class="bubble-grip" title="拖动等比缩放图标"></div>
+    </div>
+  </div>
+
+  <!-- Markdown 解析器：优先用本地 vendor/marked.min.js（不依赖网络，离线也能用）。
+       万一本地文件丢了，再尝试 CDN；两者都失败时下面的 JS 会退回纯文本，不会白屏。 -->
+  <script src="../vendor/marked.min.js"></script>
+  <script>
+    // 本地没加载出来（文件被删/路径不对）→ 兜底再试一次 CDN
+    if (typeof window.marked === 'undefined') {
+      console.warn('[overlay] 本地 marked 没加载到，尝试 CDN…');
+      const s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
+      s.onerror = () => console.error('[overlay] CDN 也没加载到，Markdown 将退回纯文本');
+      document.head.appendChild(s);
+    }
+  </script>
+
+  <script>
+    // main.js 里开了 nodeIntegration，这里可以直接 require electron
+    const { ipcRenderer } = require('electron');
+
+    const bubble = document.getElementById('bubble');
+    const msg = document.getElementById('msg');
+    const sendBtn = document.getElementById('send');
+    const log = document.getElementById('log');
+
+    const menuBtn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    const keyInput = document.getElementById('apiKey');
+    const userInput = document.getElementById('alecaUser');
+    const tokenInput = document.getElementById('alecaToken');
+    const tip = document.getElementById('settings-tip');
+    const saveBtn = document.getElementById('settings-save');
+    const clearBtn = document.getElementById('settings-clear');
+
+    const API = 'http://127.0.0.1:3000';
+    const CHAT_API = API + '/api/chat';
+    const RELIC_API = API + '/api/relic-pick';
+    const SETTINGS_API = API + '/api/settings';
+
+    let expanded = false;
+
+    // ---- 展开 / 收回由主进程决定 ----
+    // 主进程负责改窗口大小与位置，通过 IPC 通知页面；页面只切 class、管焦点
+    function setExpanded(next) {
+      if (expanded === next) return;
+      expanded = next;
+      document.body.classList.toggle('expanded', next);
+      if (next) setTimeout(() => msg.focus(), 150);
+      else {
+        msg.blur();
+        closeMenu();
+        closeView();
+      }
+    }
+
+    ipcRenderer.on('overlay:state', (_e, state) => setExpanded(state === 'expanded'));
+
+    // 主进程算好的收起态参数：图标多大、机头朝哪边、面板从哪侧展开。
+    //   --bubble-size 决定 #bubble 的边长（窗口展开时它也不会跟着撑满）
+    //   face-left     让飞船图片水平镜像（窗口在屏幕右半边时机头朝左）
+    ipcRenderer.on('overlay:bubble-conf', (_e, conf) => {
+      if (!conf) return;
+      if (conf.size) document.documentElement.style.setProperty('--bubble-size', conf.size + 'px');
+      // 图标在右半边 → 面板从左边出来、机头朝左；在左半边 → 面板从右边出来、机头朝右
+      const onRight = conf.side === 'right';
+      document.body.classList.toggle('face-left', onRight);
+      document.body.classList.toggle('panel-right', !onRight);
+    });
+
+    // 兜底：窗口一旦被缩回收起态，面板就不该还挂着 expanded，否则会渲染成一条竖线
+    window.addEventListener('resize', () => {
+      if (window.innerWidth < 200) document.body.classList.remove('expanded');
+    });
+
+    function collapse() {
+      ipcRenderer.send('overlay:request', 'collapse');
+    }
+
+    // ---- 标题栏 ☰ 菜单（主菜单 → 设置子菜单 → 二级视图） ----
+    const menuSettingsBtn = document.getElementById('menu-settings');
+    const menuSub = document.getElementById('menu-sub');
+
+    function setSubmenu(open) {
+      menuSub.dataset.open = open ? 'true' : 'false';
+      menuSettingsBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menuSettingsBtn.classList.toggle('open', open);
+    }
+
+    function openMenu() {
+      menu.hidden = false;
+      menuBtn.classList.add('open');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      setSubmenu(false); // 每次打开都回到主菜单状态
+    }
+
+    function closeMenu() {
+      if (menu.hidden) return;
+      menu.hidden = true;
+      menuBtn.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      setSubmenu(false);
+    }
+
+    function toggleMenu() {
+      if (menu.hidden) openMenu();
+      else closeMenu();
+    }
+
+    // 点 ☰：切换。stopPropagation 防止同一次点击立刻被「点外部关闭」收掉
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    // 点页面空白处关闭；点在菜单内部不关（菜单自己处理）
+    document.addEventListener('mousedown', (e) => {
+      if (menu.hidden) return;
+      if (menu.contains(e.target) || menuBtn.contains(e.target)) return;
+      closeMenu();
+    });
+
+    // 菜单项：设置只是展开二级，不直接跳视图；退出走 IPC
+    menu.addEventListener('click', (e) => {
+      const item = e.target.closest('.menu-item');
+      if (!item) return;
+      e.stopPropagation();
+
+      if (item.id === 'menu-settings') {
+        setSubmenu(menuSub.dataset.open !== 'true');
+        return;
+      }
+      if (item.dataset.view) {
+        closeMenu();
+        openView(item.dataset.view);
+        return;
+      }
+      if (item.dataset.action === 'quit') {
+        closeMenu();
+        ipcRenderer.send('overlay:quit'); // 主进程里 app.quit()
+      }
+    });
+
+    // ---- 二级视图（盖在对话区上，带标题与返回） ----
+    const subview = document.getElementById('subview');
+    const subTitle = document.getElementById('sub-title');
+    const subBack = document.getElementById('sub-back');
+    const viewRelic = document.getElementById('view-relic');
+    const viewCred = document.getElementById('view-credentials');
+
+    const VIEW_TITLES = { relic: '遗物速查数据更新', credentials: 'API 凭据' };
+    let currentView = '';
+
+    function openView(name) {
+      currentView = name;
+      subTitle.textContent = VIEW_TITLES[name] || '设置';
+      viewRelic.hidden = name !== 'relic';
+      viewCred.hidden = name !== 'credentials';
+      subview.hidden = false;
+      subview.classList.add('in');
+
+      if (name === 'credentials') loadCredentials();
+      if (name === 'relic') loadRelicStatus();
+      // 进入后把焦点放到第一个输入框（键盘用户可以直接改）
+      if (name === 'credentials') setTimeout(() => keyInput.focus(), 180);
+    }
+
+    function closeView() {
+      currentView = '';
+      subview.hidden = true;
+      subview.classList.remove('in');
+      msg.focus();
+    }
+
+    subBack.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeView();
+    });
+
+    // ---- 视图 1：遗物速查数据更新（部件表 / 价格表两张本地数据） ----
+    const relicParts = document.getElementById('relic-parts');
+    const relicPartsAt = document.getElementById('relic-parts-at');
+    const relicPriced = document.getElementById('relic-priced');
+    const relicPricesAt = document.getElementById('relic-prices-at');
+    const relicZh = document.getElementById('relic-zh');
+    const relicTip = document.getElementById('relic-tip');
+    const relicPartsBtn = document.getElementById('relic-update-parts');
+    const relicPricesBtn = document.getElementById('relic-update-prices');
+    let relicTimer = null;
+
+    function fmtTime(iso) {
+      if (!iso) return '—';
+      const d = new Date(iso);
+      if (Number.isNaN(d.getTime())) return '—';
+      const p = (n) => String(n).padStart(2, '0');
+      return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
+    }
+
+    function setBusy(btn, busy, label) {
+      btn.disabled = busy;
+      if (busy) btn.textContent = label;
+      else btn.textContent = btn.dataset.label || btn.textContent;
+    }
+
+    async function loadRelicStatus() {
+      try {
+        const d = await (await fetch(API + '/api/relic/status')).json();
+        relicParts.textContent = d.parts ? d.parts.count + ' 条' : '未生成';
+        relicPartsAt.textContent = d.parts ? fmtTime(d.parts.updatedAt) : '—';
+        relicPriced.textContent = d.prices ? d.prices.priced + ' / ' + d.prices.count + ' 有价' : '未生成';
+        relicPricesAt.textContent = d.prices ? fmtTime(d.prices.updatedAt) : '—';
+        relicZh.textContent = d.zhNames != null ? d.zhNames + ' 条' : '—';
+
+        const running = d.runningParts || d.runningPrices;
+        relicPartsBtn.disabled = d.runningParts || d.runningPrices;
+        relicPricesBtn.disabled = d.runningParts || d.runningPrices;
+        if (d.runningParts) {
+          relicPartsBtn.textContent = '更新部件中…';
+          relicTip.textContent = '正在扫描离线库和 market 物品清单…';
+        } else if (d.runningPrices) {
+          relicPricesBtn.textContent = '更新价格中…';
+          relicTip.textContent = '正在逐个询价（防钓鱼：取前 5 单中位数，剔除低于 30% 的异常单）。';
+        } else {
+          relicPartsBtn.textContent = '更新部件信息';
+          relicPricesBtn.textContent = '更新价格信息';
+        }
+        return d;
+      } catch {
+        relicTip.textContent = '读不到状态：本地服务没响应。';
+        relicTip.classList.add('error');
+        return null;
+      }
+    }
+
+    async function runRelicUpdate(kind) {
+      const btn = kind === 'parts' ? relicPartsBtn : relicPricesBtn;
+      const url = kind === 'parts' ? API + '/api/update-relics' : API + '/api/update-prices';
+      btn.disabled = true;
+      btn.textContent = '启动中…';
+      relicTip.classList.remove('error');
+      try {
+        const r = await fetch(url, { method: 'POST' });
+        const d = await r.json().catch(() => ({}));
+        if (!r.ok) throw new Error(d.reply || 'HTTP ' + r.status);
+        relicTip.textContent = kind === 'parts'
+          ? '已开始更新部件表（几秒到几十秒）。'
+          : '已开始更新价格表（1–3 分钟，期间可以继续聊天）。';
+        clearInterval(relicTimer);
+        relicTimer = setInterval(async () => {
+          const d2 = await loadRelicStatus();
+          if (d2 && !d2.runningParts && !d2.runningPrices) {
+            clearInterval(relicTimer);
+            relicTimer = null;
+            relicTip.textContent = '更新完成：' + fmtTime(kind === 'parts' ? d2.parts?.updatedAt : d2.prices?.updatedAt);
+          }
+        }, 2500);
+      } catch (err) {
+        relicTip.textContent = '启动失败：' + err.message;
+        relicTip.classList.add('error');
+        btn.disabled = false;
+        btn.textContent = kind === 'parts' ? '更新部件信息' : '更新价格信息';
+      }
+    }
+
+    relicPartsBtn.dataset.label = '更新部件信息';
+    relicPricesBtn.dataset.label = '更新价格信息';
+    relicPartsBtn.addEventListener('click', () => runRelicUpdate('parts'));
+    relicPricesBtn.addEventListener('click', () => runRelicUpdate('prices'));
+
+    // ---- 视图 2：API 凭据 ----
+    // 三个凭据都以明文回填（服务只监听 127.0.0.1），方便直接改某一位
+    const loadedSettings = { apiKey: '', userHash: '', publicToken: '' };
+
+    async function loadCredentials() {
+      tip.classList.remove('error', 'ok');
+      tip.textContent = '读取中…';
+      try {
+        const d = await (await fetch(SETTINGS_API)).json();
+        loadedSettings.apiKey = d.apiKey || '';
+        loadedSettings.userHash = d.userHash || '';
+        loadedSettings.publicToken = d.publicToken || '';
+        keyInput.value = loadedSettings.apiKey;
+        userInput.value = loadedSettings.userHash;
+        tokenInput.value = loadedSettings.publicToken;
+
+        const bits = [];
+        bits.push(d.configured ? 'DeepSeek：' + d.masked : 'DeepSeek：未配置');
+        bits.push(d.userHash ? 'AlecaFrame：已配置' : 'AlecaFrame：未配置');
+        tip.textContent = bits.join('　|　');
+        if (d.invError) tip.textContent += '（' + d.invError + '）';
+      } catch {
+        tip.textContent = '连不上本地服务，先确认悬浮窗是开着的。';
+        tip.classList.add('error');
+      }
+    }
+
+    async function saveSettings() {
+      const payload = {};
+      const key = keyInput.value.trim();
+      const user = userInput.value.trim();
+      const token = tokenInput.value.trim();
+
+      if (key && key !== loadedSettings.apiKey) payload.apiKey = key;
+      if (user && user !== loadedSettings.userHash) payload.userHash = user;
+      if (token && token !== loadedSettings.publicToken) payload.publicToken = token;
+
+      if (!Object.keys(payload).length) {
+        tip.textContent = '没有改动，不用保存。';
+        tip.classList.add('error');
+        return;
+      }
+
+      saveBtn.disabled = true;
+      saveBtn.textContent = '保存中…';
+      try {
+        const r = await fetch(SETTINGS_API, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const d = await r.json().catch(() => ({}));
+        if (!r.ok) throw new Error(d.reply || 'HTTP ' + r.status);
+
+        const parts = [];
+        if (d.keyUpdated) parts.push('API Key（' + d.masked + '）');
+        if (d.invUpdated) parts.push('AlecaFrame 凭据');
+        tip.classList.remove('error');
+        tip.classList.add('ok');
+        tip.textContent =
+          '✅ 已保存：' + parts.join('、') + '。' +
+          (d.invReloaded ? '库存服务已热重连，立刻生效。' : '部分功能可能需要重启悬浮窗后生效。');
+
+        // 同步一份到聊天里，方便回看
+        pushMessage('✅ 配置已保存：' + parts.join('、') + '。', false, 'note');
+      } catch (err) {
+        tip.textContent = '保存失败：' + err.message;
+        tip.classList.add('error');
+      } finally {
+        saveBtn.disabled = false;
+        saveBtn.textContent = '保存配置';
+      }
+    }
+
+    saveBtn.addEventListener('click', saveSettings);
+    // 清空上下文放在凭据视图里（主菜单只保留「设置 / 退出」）
+    clearBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      clearChatContext();
+    });
+    for (const el of [keyInput, userInput, tokenInput]) {
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') saveSettings();
+        if (e.key === 'Escape') closeView();
+      });
+    }
+
+    // ---- 清空对话上下文 ----
+    // 后端维护着最近 8 轮历史，这里只是让它忘记前面的对话。
+    // 界面上的旧气泡不会删，方便回看，只是模型不再拿它们当上下文。
+    async function clearChatContext() {
+      try {
+        const r = await fetch(API + '/api/history/clear', { method: 'POST' });
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        pushMessage('🧹 上下文已清空，下一句从零开始。', false, 'note');
+      } catch (err) {
+        pushMessage('清空失败：' + err.message, false, 'error');
+      }
+    }
+
+    // ---- Markdown 渲染 ----
+    // 不再在启动时把结果存成常量：CDN 兜底是异步的，等到真正要渲染时再检查一次最稳。
+    function configureMarked() {
+      if (typeof window.marked === 'undefined' || typeof window.marked.parse !== 'function') {
+        return false;
+      }
+      // gfm: 表格、删除线；breaks: 单个换行也换行（AI 回复里很常见）
+      window.marked.setOptions({ gfm: true, breaks: true });
+      return true;
+    }
+    configureMarked();
+
+    // marked 只负责转 HTML，不做消毒。回复里若混进 <script> 或 <img onerror>，
+    // 直接塞 innerHTML 就会被执行，所以先过一遍清理。
+    function sanitize(html) {
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      doc
+        .querySelectorAll('script,style,iframe,object,embed,link,meta,form,input,button,img,svg')
+        .forEach((n) => n.remove());
+      doc.querySelectorAll('*').forEach((el) => {
+        for (const attr of [...el.attributes]) {
+          const name = attr.name.toLowerCase();
+          const val = attr.value.trim().toLowerCase();
+          if (name.startsWith('on')) el.removeAttribute(attr.name);
+          else if ((name === 'href' || name === 'src') && val.startsWith('javascript:')) {
+            el.removeAttribute(attr.name);
+          }
+        }
+      });
+      // 点链接别把悬浮窗自己导航走
+      doc.querySelectorAll('a[href]').forEach((a) => {
+        a.target = '_blank';
+        a.rel = 'noreferrer noopener';
+      });
+      return doc.body.innerHTML;
+    }
+
+    // 给每个 <pre> 套一层容器，上面加一条小标题栏，右上角放「复制」按钮
+    function enhanceCodeBlocks(container) {
+      container.querySelectorAll('pre').forEach((pre) => {
+        if (pre.parentElement && pre.parentElement.classList.contains('code-wrap')) return;
+
+        const wrap = document.createElement('div');
+        wrap.className = 'code-wrap';
+        pre.parentNode.insertBefore(wrap, pre);
+
+        const head = document.createElement('div');
+        head.className = 'code-head';
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'copy-btn';
+        btn.textContent = '复制';
+        btn.addEventListener('click', async () => {
+          // innerText 拿到的是纯文本，不含任何 HTML 标签
+          const code = (pre.querySelector('code') || pre).innerText;
+          try {
+            await navigator.clipboard.writeText(code);
+          } catch {
+            // 剪贴板 API 被拒时退回老办法（Electron 里基本走不到）
+            const ta = document.createElement('textarea');
+            ta.value = code;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            ta.remove();
+          }
+          btn.textContent = '已复制';
+          btn.classList.add('ok');
+          setTimeout(() => {
+            btn.textContent = '复制';
+            btn.classList.remove('ok');
+          }, 2000);
+        });
+
+        head.appendChild(btn);
+        wrap.appendChild(head);
+        wrap.appendChild(pre);
+      });
+    }
+
+    function renderRich(el, markdown) {
+      el.classList.add('rich');
+
+      // 每次都重新检查：CDN 兜底脚本可能在第一条消息之后才加载完
+      if (!configureMarked()) {
+        // 两个来源都没加载到也别白屏：至少把文字显示出来
+        el.textContent = markdown;
+        console.error('[overlay] marked 不可用，本条回复按纯文本显示');
+        return;
+      }
+
+      // ★ 这里必须是 innerHTML：textContent 会把 **粗体**、|---|---| 原样显示出来
+      el.innerHTML = sanitize(window.marked.parse(String(markdown)));
+      el.scrollTop = 0;
+      enhanceCodeBlocks(el);
+    }
+
+    // ---- 发送：POST 给本地 server.js，再把 reply 画成气泡 ----
+    function pushMessage(text, mine, extraClass) {
+      const p = document.createElement('p');
+      p.className = 'msg' + (mine ? ' mine' : '') + (extraClass ? ' ' + extraClass : '');
+      p.textContent = text; // 自己说的话按纯文本处理，不解析 Markdown
+      log.appendChild(p);
+      log.scrollTop = log.scrollHeight;
+      return p;
+    }
+
+    /* 带图的用户气泡：缩略图在上，文字在下 */
+    function pushImageMessage(text, dataUrl) {
+      const p = document.createElement('p');
+      p.className = 'msg mine with-image';
+      const img = document.createElement('img');
+      img.className = 'msg-img';
+      img.src = dataUrl;
+      img.alt = '截图';
+      img.addEventListener('click', () => img.classList.toggle('zoomed'));
+      p.appendChild(img);
+      if (text) {
+        const span = document.createElement('span');
+        span.className = 'msg-text';
+        span.textContent = text;
+        p.appendChild(span);
+      }
+      log.appendChild(p);
+      log.scrollTop = log.scrollHeight;
+      return p;
+    }
+
+    /* ============================================================
+       ★ 截图粘贴（Ctrl+V）→ 缩略图预览 → 随消息发 base64 给后端
+       ============================================================ */
+    const pastePreview = document.getElementById('paste-preview');
+    const pasteThumb = document.getElementById('paste-thumb');
+    const pasteRemove = document.getElementById('paste-remove');
+    const pasteSize = document.getElementById('paste-size');
+    let pendingImage = '';
+
+    function clearPendingImage() {
+      pendingImage = '';
+      pastePreview.hidden = true;
+      pasteThumb.removeAttribute('src');
+      pasteSize.textContent = '';
+    }
+
+    /* 把剪贴板里的图片压一下再转 base64：
+       - 最长边压到 1568（视觉模型的常见上限附近），避免一张 4K 截图几 MB
+       - 用 JPEG 0.92，文字类截图也够清晰，体积通常 150~400KB */
+    async function fileToDataUrl(file) {
+      const bitmap = await createImageBitmap(file);
+      const MAX = 1568;
+      const scale = Math.min(1, MAX / Math.max(bitmap.width, bitmap.height));
+      const w = Math.max(1, Math.round(bitmap.width * scale));
+      const h = Math.max(1, Math.round(bitmap.height * scale));
+      const canvas = document.createElement('canvas');
+      canvas.width = w;
+      canvas.height = h;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(bitmap, 0, 0, w, h);
+      if (bitmap.close) bitmap.close();
+      return canvas.toDataURL('image/jpeg', 0.92);
+    }
+
+    document.addEventListener('paste', async (e) => {
+      const items = e.clipboardData && e.clipboardData.items;
+      if (!items) return;
+      let file = null;
+      for (const it of items) {
+        if (it.kind === 'file' && /^image\//i.test(it.type)) {
+          file = it.getAsFile();
+          if (file) break;
+        }
+      }
+      if (!file) return; // 普通文字还是走默认粘贴
+      e.preventDefault();
+      try {
+        const dataUrl = await fileToDataUrl(file);
+        pendingImage = dataUrl;
+        pasteThumb.src = dataUrl;
+        pasteSize.textContent = Math.round((dataUrl.length * 0.75) / 1024) + ' KB';
+        pastePreview.hidden = false;
+        msg.focus();
+        // 遗物模式开着：粘完直接算，不用再点按钮
+        if (relicMode) onRelicPick(dataUrl);
+      } catch (err) {
+        pushMessage('⚠️ 这张图读不出来：' + err.message, false, 'error');
+      }
+    });
+
+    pasteRemove.addEventListener('click', (e) => {
+      e.stopPropagation();
+      clearPendingImage();
+      msg.focus();
+    });
+
+    let sending = false;
+
+    /* 边收边显示：后端按 SSE 逐段推 {type:'delta'|'done'|'error'} */
+    async function readChatStream(res, bubble) {
+      if (!res.body || !res.body.getReader) {
+        const data = await res.json().catch(() => ({}));
+        return data.reply || '';
+      }
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buf = '';
+      let full = '';
+      let started = false;
+
+      for (;;) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        buf += decoder.decode(value, { stream: true });
+
+        let cut;
+        while ((cut = buf.indexOf('\n\n')) >= 0) {
+          const chunk = buf.slice(0, cut);
+          buf = buf.slice(cut + 2);
+          const line = chunk.split('\n').find((l) => l.startsWith('data: '));
+          if (!line) continue;
+
+          let evt;
+          try {
+            evt = JSON.parse(line.slice(6));
+          } catch {
+            continue;
+          }
+
+          if (evt.type === 'delta') {
+            if (!started) {
+              started = true;
+              bubble.classList.remove('pending');
+              bubble.classList.add('streaming');
+              bubble.textContent = '';
+            }
+            full += evt.text;
+            bubble.textContent = full;
+            log.scrollTop = log.scrollHeight;
+          } else if (evt.type === 'done') {
+            if (evt.reply) full = evt.reply;
+          } else if (evt.type === 'error') {
+            throw new Error(evt.message || '流式返回出错');
+          }
+        }
+      }
+
+      return full;
+    }
+
+    async function onSend() {
+      const text = msg.value.trim();
+      const image = pendingImage;
+      if ((!text && !image) || sending) return;
+
+      if (image) pushImageMessage(text, image);
+      else pushMessage(text, true);
+      msg.value = '';
+      clearPendingImage();
+      const pending = pushMessage('正在思考…', false, 'pending');
+
+      sending = true;
+      sendBtn.disabled = true;
+      try {
+        const payload = { message: text || '看看这张图，告诉我里面有什么。（Warframe 相关）', stream: true };
+        if (image) payload.image = image;
+        const res = await fetch(CHAT_API, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (!res.ok) {
+          let data = null;
+          try {
+            data = await res.json();
+          } catch {
+            /* 后端返回的不是 JSON，下面统一报错 */
+          }
+          pending.classList.remove('pending');
+          // 后端把「密钥没填 / 401 / 余额不足」这类原因放在 reply 里，直接展示
+          pending.classList.add('error');
+          pending.textContent = (data && data.reply) || '请求失败（HTTP ' + res.status + '）';
+          return;
+        }
+
+        const reply = await readChatStream(res, pending);
+        pending.classList.remove('pending', 'streaming');
+        renderRich(pending, reply || '（服务端没有返回内容）');
+      } catch (err) {
+        // 典型：node server.js 没起、端口被占
+        pending.classList.remove('pending');
+        pending.classList.add('error');
+        pending.textContent = '连不上本地服务：' + err.message + '\n先确认终端里 node server.js 正在运行。';
+      } finally {
+        sending = false;
+        sendBtn.disabled = false;
+      }
+      // 长回复别直接跳到最底部，滚到这条回复的开头，方便从头读
+      log.scrollTop = Math.max(0, pending.offsetTop - 10);
+    }
+
+    /* ============================================================
+       开核桃秒选：识别 4 个遗物奖励 → 本地价目表 → 一句话结论
+       ------------------------------------------------------------
+       先把奖励截图 Ctrl+V 进来（会显示缩略图），再点 🎁 / Alt+R。
+       没粘贴的话会尝试直接从系统剪贴板读图。
+       ============================================================ */
+    const relicBtn = document.getElementById('relic-btn');
+    let relicBusy = false;
+    // 遗物模式：开启后 🎁 高亮、面板常驻不自动收回，粘贴截图直接出结论
+    let relicMode = false;
+
+    function setRelicMode(on) {
+      relicMode = !!on;
+      document.body.classList.toggle('relic-mode', relicMode);
+      relicBtn.classList.toggle('on', relicMode);
+      relicBtn.setAttribute('aria-pressed', relicMode ? 'true' : 'false');
+      ipcRenderer.send('overlay:relic-lock', relicMode);
+      if (relicMode) {
+        pushMessage('🎁 遗物模式已开启：直接 Ctrl+V 粘贴奖励截图就会自动识别。再点一次 🎁 关闭（面板会恢复自动收起）。', false, 'note');
+      } else {
+        pushMessage('遗物模式已关闭，面板恢复「鼠标离开 1 秒收起」。', false, 'note');
+      }
+      log.scrollTop = log.scrollHeight;
+    }
+
+    /* 从系统剪贴板读一张图；读不到（没权限/不是图）返回空串 */
+    async function readClipboardImage() {
+      try {
+        if (!navigator.clipboard || !navigator.clipboard.read) return '';
+        const items = await navigator.clipboard.read();
+        for (const item of items) {
+          const type = item.types.find((ty) => /^image\//i.test(ty));
+          if (!type) continue;
+          const blob = await item.getType(type);
+          return await fileToDataUrl(blob);
+        }
+      } catch (err) {
+        console.warn('[relic] 读剪贴板失败：', err.message);
+      }
+      return '';
+    }
+
+    async function onRelicPick(presetImage) {
+      if (relicBusy) return;
+
+      let image = presetImage || pendingImage;
+      if (!image) image = await readClipboardImage();
+      if (!image) {
+        pushMessage('先把奖励截图粘贴进来（Ctrl+V），再点 🎁。', false, 'note');
+        return;
+      }
+
+      pushImageMessage('开核桃：帮我选一个', image);
+      clearPendingImage();
+
+      const bubble = pushMessage('Ordis 正在辨认奖励…', false, 'pending relic');
+      relicBusy = true;
+      relicBtn.disabled = true;
+
+      try {
+        const res = await fetch(RELIC_API, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ image }),
+        });
+        let data = null;
+        try {
+          data = await res.json();
+        } catch {
+          /* 非 JSON，下面统一报错 */
+        }
+        bubble.classList.remove('pending');
+        if (!res.ok || !data) {
+          bubble.classList.add('error');
+          bubble.textContent = (data && data.reply) || '识别失败（HTTP ' + res.status + '）';
+          return;
+        }
+        bubble.classList.add('relic');
+        renderRich(bubble, data.reply || '没认出奖励，再截一次。');
+      } catch (err) {
+        bubble.classList.remove('pending');
+        bubble.classList.add('error');
+        bubble.textContent = '连不上本地服务：' + err.message;
+      } finally {
+        relicBusy = false;
+        relicBtn.disabled = false;
+        log.scrollTop = Math.max(0, bubble.offsetTop - 10);
+      }
+    }
+
+    // 🎁 现在是「遗物模式」开关：第一次点开启并高亮，再点关闭。
+    // 已经开着且手里有图时，点它就立刻算一次（不想等自动触发时的备用操作）。
+    relicBtn.addEventListener('click', () => {
+      if (!relicMode) {
+        setRelicMode(true);
+        if (pendingImage) onRelicPick(pendingImage);
+        return;
+      }
+      if (pendingImage) onRelicPick(pendingImage);
+      else setRelicMode(false);
+    });
+
+    /* Alt+R 等同于点 🎁（不用全局热键，免得和游戏抢键） */
+    document.addEventListener('keydown', (e) => {
+      if (e.altKey && (e.key === 'r' || e.key === 'R')) {
+        e.preventDefault();
+        onRelicPick();
+      }
+    });
+    sendBtn.addEventListener('click', onSend);
+    msg.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') onSend();
+      if (e.key === 'Escape') collapse();
+    });
+
+    // Esc 优先退出二级视图 / 关菜单（不然一按就把面板收回去了）
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      if (!subview.hidden) {
+        e.stopPropagation();
+        closeView();
+      } else if (!menu.hidden) {
+        e.stopPropagation();
+        closeMenu();
+      }
+    });
+
+    // 面板收起时若还聚焦在输入框，主动 blur，避免键盘输入被藏起来的输入框吃掉
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) collapse();
+    });
+
+    // ============================================================
+    // 收起态图标：拖动移动窗口 / 点击展开面板
+    // ------------------------------------------------------------
+    // 图标用 no-drag + JS 手动判断，这样"拖动"和"点击"不会互相吃掉：
+    // 按下先记起点，位移超过 5px 才算拖动，否则松手时当点击。
+    // ============================================================
+    const resizer = document.getElementById('resizer');
+    const bubbleGrip = document.getElementById('bubble-grip');
+    let dragOrigin = null;
+    let gripOrigin = null;
+
+    // 收起态右下角把手：拖它等比缩放图标（主进程把窗口保持正方形，80~150）
+    bubbleGrip.addEventListener('mousedown', (e) => {
+      if (e.button !== 0) return;
+      e.preventDefault();
+      e.stopPropagation();            // 别让下面的"拖窗口"逻辑接管
+      gripOrigin = { x: e.screenX, y: e.screenY };
+      document.body.classList.add('bubble-resizing');
+      ipcRenderer.send('overlay:bubble-resize', { phase: 'start', x: e.screenX, y: e.screenY });
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!gripOrigin) return;
+      ipcRenderer.send('overlay:bubble-resize', { phase: 'move', x: e.screenX, y: e.screenY });
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (gripOrigin) {
+        gripOrigin = null;
+        document.body.classList.remove('bubble-resizing');
+        ipcRenderer.send('overlay:bubble-resize', { phase: 'end' });
+        return;
+      }
+      if (!dragOrigin) return;
+      const wasClick = dragOrigin.mode === 'bubble' && dragOrigin.moved <= 5;   // 图标上几乎没动 = 单击展开
+      dragOrigin = null;
+      document.body.classList.remove('dragging');
+      ipcRenderer.send('overlay:drag', { phase: 'end' });
+      if (wasClick) ipcRenderer.send('overlay:request', 'expand');
+    });
+
+    // 收起态图标：按下算"准备拖动"，几乎没移动就当成"点击 → 展开面板"。
+    bubble.addEventListener('mousedown', (e) => {
+      if (e.button !== 0) return;
+      dragOrigin = { screenX: e.screenX, screenY: e.screenY, moved: 0, mode: 'bubble' };
+      ipcRenderer.send('overlay:drag', { phase: 'start' });
+      e.preventDefault();
+    });
+
+    // 展开态：按住标题栏空白处拖动窗口。
+    // 不用 CSS 的 -webkit-app-region: drag —— 它在这个透明窗口 + 缩放动画下失灵，
+    // 实测按下去完全不跟手；这里复用和图标拖动同一套 IPC，稳定可控。
+    const panelHead = document.querySelector('.panel-head');
+    if (panelHead) {
+      panelHead.addEventListener('mousedown', (e) => {
+        if (e.button !== 0) return;
+        if (!document.body.classList.contains('expanded')) return;
+        // 标题栏里的按钮 / Tab / 输入框交给它们自己处理
+        if (e.target.closest('button, .menu-btn, .tab, .dot, input, a, .subview')) return;
+        dragOrigin = { screenX: e.screenX, screenY: e.screenY, moved: 0, mode: 'head' };
+        ipcRenderer.send('overlay:drag', { phase: 'start' });
+        e.preventDefault();
+      });
+    }
+
+    window.addEventListener('mousemove', (e) => {
+      if (!dragOrigin) return;
+      const dx = e.screenX - dragOrigin.screenX;
+      const dy = e.screenY - dragOrigin.screenY;
+      dragOrigin.moved = Math.max(dragOrigin.moved, Math.abs(dx) + Math.abs(dy));
+      // 超过阈值才开始真正搬窗口，避免手抖把点击变成拖动
+      if (dragOrigin.moved > 5) {
+        document.body.classList.add('dragging');
+        ipcRenderer.send('overlay:drag', { phase: 'move', dx, dy });
+      }
+    });
+
+    // 鼠标跑到窗口外松手时收不到 mouseup，失去焦点也当作结束，避免"粘住"
+    window.addEventListener('blur', () => {
+      if (gripOrigin) {
+        gripOrigin = null;
+        document.body.classList.remove('bubble-resizing');
+        ipcRenderer.send('overlay:bubble-resize', { phase: 'end' });
+      }
+      if (!dragOrigin) return;
+      dragOrigin = null;
+      document.body.classList.remove('dragging');
+      ipcRenderer.send('overlay:drag', { phase: 'end' });
+    });
+
+    // ============================================================
+    // 面板右下角把手 → 拉伸窗口
+    // 页面只报告鼠标位移，真正的 setBounds 在主进程里做（页面改不了窗口大小）。
+    // ============================================================
+    let resizeOrigin = null;
+
+    function runResize(e) {
+      if (!resizeOrigin) return;
+      ipcRenderer.send('overlay:resize', {
+        phase: 'move',
+        dx: e.screenX - resizeOrigin.screenX,
+        dy: e.screenY - resizeOrigin.screenY,
+      });
+    }
+
+    function endResize() {
+      if (!resizeOrigin) return;
+      resizeOrigin = null;
+      document.body.classList.remove('resizing');
+      ipcRenderer.send('overlay:resize', { phase: 'end' });
+      window.removeEventListener('mousemove', runResize);
+      window.removeEventListener('mouseup', endResize);
+    }
+
+    resizer.addEventListener('mousedown', (e) => {
+      if (e.button !== 0) return;
+      e.preventDefault();
+      e.stopPropagation();
+      resizeOrigin = { screenX: e.screenX, screenY: e.screenY };
+      document.body.classList.add('resizing');
+      ipcRenderer.send('overlay:resize', { phase: 'start' });
+      window.addEventListener('mousemove', runResize);
+      window.addEventListener('mouseup', endResize);
+    });
+  </script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,26 @@
+{
+  "name": "ordis-overlay",
+  "version": "1.11.0",
+  "description": "Warframe 本地 AI 助手 · Ordis 全息悬浮窗（Electron + Express + MCP）",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron . --no-sandbox",
+    "doctor": "node scripts/doctor.js",
+    "setup": "node scripts/setup.js",
+    "update:zh": "node scripts/build_zh_map.js && node scripts/fill_zh_search.js",
+    "update:relic-parts": "node scripts/update_relic_parts.js",
+    "update:relic-prices": "node scripts/update_relic_prices.js",
+    "update:relic-rewards": "node scripts/update_relic_rewards.js",
+    "update:all": "node scripts/update_relic_rewards.js && node scripts/update_relic_parts.js && node scripts/update_relic_prices.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^33.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "express": "^5.3.0",
+    "openai": "^7.39.0"
+  }
+}
